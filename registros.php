@@ -153,9 +153,9 @@
                                                                                 <i class="material-icons">edit</i>
                                                                             </a>
                                                                                 <i>&nbsp;</i>
-                                                                            <a href="#" style="color: #E74C3C">
+                                                                            <button clase="btn btn-primary" id="' . $id_reino_nuevo . '" onclick="desactivarReino(this.id)">
                                                                                 <i class="material-icons">delete</i>
-                                                                            </a>
+                                                                            </button>
                                                                         </td>
                                                                     </tr>
                                                                         ';
@@ -246,7 +246,7 @@
                                                                 <i class="material-icons">more_vert</i>
                                                             </a>
                                                             <ul class="dropdown-menu pull-right">
-                                                                <li><a href="javascript:void(0);">Agregar nueva clase</a></li>
+                                                                <li><a data-toggle="modal" data-target="#modalClase">Agregar nueva clase</a></li>
                                                             </ul>
                                                         </li>
                                                     </ul>
@@ -976,13 +976,30 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- Modal CLASE -->
+                            <div class="modal fade" id="modalClase" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                <div class="modal-dialog" role="document" style="width: 600px; margin: 30px auto">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title" id="defaultModalLabel">Agregar Nueva Clase</h4>
+                                        </div>
 
+                                        <form id="fmr-reino">
+                                            <div class="modal-body">
+                                                <label for="nombre-clase">Nombre de la Clase</label>
+                                                <input type="text" class="form-control" name="nombre-clase" id="nombre-clase" >
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-link waves-effect" data-dismiss="modal" id="guardar-clase">AGREGAR</button>
+                                                <button type="button" class="btn btn-link waves-effect" data-dismiss="modal" aria-label="Close">CANCELAR</button>
+                                            </div>
+                                        </form>
+                                        <div id="mensaje-reino"></div>
 
-
-
-                            <?php
-                            //include_once './plantillas/modal-catalogos.inc.php';
-                            ?>
+                                    </div>
+                                </div>
+                            </div>
 
                             <script>
                                 function openCity(evt, cityName) {
@@ -1023,66 +1040,49 @@
         <?php
         //include_once 'plantillas/dashboard-scripts.php';
         ?>
-
-
-
-        <!--<script type="text/javascript">
-            $(document).ready(function () {
-                $('#guardar-reino').click(function () {
-                    var datos = $('#reino').serialize();
+        <script type="text/javascript">
+            //CREAR NUEVO REINO
+            $('#guardar-reino').click(function ()
+            {
+                nombre_reino = $('#nombre-reino').val();
+                if (!nombre_reino)
+                {
+                    alert('Debe completar todos los campos');
+                } else
+                {
                     $.ajax({
                         type: "POST",
-                        url: "app/insertarDatos.php",
-                        data: datos,
+                        url: "app/insertarReino.php",
+                        data: {'funcion': 'insertarReino', 'n_reino': nombre_reino},
                         success: function (r) {
+
                             if (r == 1) {
                                 alert("Agregado con éxito");
                             } else {
-                                alert("Falló el servidor");
+                                alert("Error del servidor");
                             }
                         }
                     });
-                    return false;
-                });
+
+                }
+
             });
-        </script>
-
-        <script>
-            $(document).on("ready", function () {
-                enviarDatosReino();
-            });
-
-            function enviarDatosReino() {
-                $("#fmr-reino").on("submit", function (e) {
-                    e.preventDefault();
-                    var frm = $(this).serialize();
-                    $.ajax({
-                        "method":"POST",
-                        "url":"app/insertarReino.php",
-                        "data":frm
-                    }).done(function (info) {
-                        $("#mensaje-reino").html(info);
-                    });
-                });
-            }
-        </script>-->
-
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $('#guardar-reino').click(function () {
-                    nombre_r = $('#nombre-reino').val();
-                    agregarReino(nombre_r);
-                });
-
-                function agregarReino(nombre_reino) {
-
-                    cadena = "n_reino=" + nombre_reino;
+            //CREAR NUEVA CLASE
+            $('#guardar-clase').click(function ()
+            {
+                nombre_clase = $('#nombre-clase').val();
+                if (!nombre_clase)
+                {
+                    alert('Debe completar todos los campos');
+                } else
+                {
 
                     $.ajax({
                         type: "POST",
                         url: "app/insertarReino.php",
-                        data: cadena,
+                        data: {'funcion': 'insertarClase', 'n_clase': nombre_clase},
                         success: function (r) {
+
                             if (r == 1) {
                                 alert("Agregado con éxito");
                             } else {
@@ -1092,6 +1092,18 @@
                     });
                 }
             });
+
+            function desactivarReino(id)
+            {
+                if (confirm('Desea eliminar este reino?'))
+                {
+
+                } else
+                {
+                    alert("Cancelo la actualizacion")
+                }
+
+            }
         </script>
 
         <?php

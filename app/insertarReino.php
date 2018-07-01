@@ -1,9 +1,32 @@
 <?php
 
-$nombre_reino = $_POST["n_reino"];
+include ('conexion2.php');
 
-$sql_reino = "INSERT INTO reino (nombre_reino) VALUES ('$nombre_reino')";
+$funcion = $_POST['funcion'];
 
-$sentencia_reino = Conexion::obtener_conexion()->prepare($sql_reino);
+if ($funcion == 'insertarReino') {
+    $nombre_reino = $_POST["n_reino"];
+    try {
+        $query = "INSERT INTO reino (nombre_reino) VALUES (?)";
+        $stmt = $pdoConn->prepare($query);
+        $stmt->execute(array($nombre_reino));
+        echo '1';
+    } catch (Exception $e) {
+        echo '0';
+    }
+} else if ($funcion == 'insertarClase') {
+    $nombre_clase = $_POST["n_clase"];
+    try {
+        $query = "INSERT INTO clase (nombre_clase) VALUES (?)";
+        $stmt = $pdoConn->prepare($query);
+        $stmt->execute(array($nombre_clase));
+        echo '1';
+    } catch (Exception $e) {
+        echo '0';
+    }
+}
 
-echo $sentencia_reino->execute();
+
+
+
+

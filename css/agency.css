@@ -5,7 +5,7 @@
  */
 body {
     overflow-x: hidden;
-    font-family: 'Roboto Slab', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'sans-serif', 'Helvetica Neue', Helvetica, Arial;
 }
 
 container-fluid{
@@ -36,7 +36,7 @@ h4,
 h5,
 h6 {
     font-weight: 700;
-    font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'sans-serif', 'Helvetica Neue', Helvetica, Arial;
 }
 
 section {
@@ -56,7 +56,7 @@ section h3.section-subheading {
     font-style: italic;
     margin-bottom: 75px;
     text-transform: none;
-    font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'sans-serif', 'Helvetica Neue', Helvetica, Arial;
 }
 
 div h3.section-subheading {
@@ -65,7 +65,7 @@ div h3.section-subheading {
     font-style: italic;
     margin-bottom: 75px;
     text-transform: none;
-    font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'sans-serif', 'Helvetica Neue', Helvetica, Arial;
 }
 
 @media (min-width: 768px) {
