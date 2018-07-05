@@ -1148,7 +1148,7 @@ hr {
   margin-top: 20px;
   margin-bottom: 20px;
   border: 0;
-  border-top: 1px solid #eee;
+  border-top: 1px solid #dcdcdc;
 }
 .sr-only {
   position: absolute;
@@ -3035,7 +3035,6 @@ select[multiple].input-lg {
 .btn:hover,
 .btn:focus,
 .btn.focus {
-  color: #333;
   text-decoration: none;
 }
 .btn:active,

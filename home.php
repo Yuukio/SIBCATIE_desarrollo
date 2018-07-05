@@ -66,8 +66,8 @@
                         </div>
                     </div>
 
-                    <div class="col-md-5">
-                        <!--Especies no identificadas-->
+                    <!--Especies no identificadas-->
+                    <div class="col-md-10">       
                         <div class="card">
                             <div class="header bg-red">
                                 <h2>ESPECIES INDEFINIDAS</h2>
@@ -153,34 +153,11 @@
                         </div>
                     </div>
 
-                    <div class="col-md-5">
-                        <div class="card">
-                            <div class="header bg-orange">
-                                <h2>NUEVA TABLA</h2>
-                                <ul class="header-dropdown m-r--5">
-                                    <li class="dropdown">
-                                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                            <i class="material-icons">more_vert</i>
-                                        </a>
-                                        <ul class="dropdown-menu pull-right">
-                                            <li><a href="javascript:void(0);">Action</a></li>
-                                            <li><a href="javascript:void(0);">Another action</a></li>
-                                            <li><a href="javascript:void(0);">Something else here</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="body" style="height: 295px">
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
 
-
+            <!--Especies no identificadas-->
             <div class="col-md-7">
-                <!--Especies no identificadas-->
                 <div class="card">
                     <div class="header bg-green">
                         <h2>REGISTRO DE ACTIVIDAD</h2>
@@ -277,8 +254,9 @@
                     </div>
                 </div>
             </div>
+            
+            <!--Usuarios registrados-->
             <div class="col-md-5">
-                <!--Usuarios registrados-->
                 <div class="card">
                     <div class="header bg-cyan">
                         <h2>USUARIOS ADMINISTRADORES</h2>
@@ -338,6 +316,7 @@
                     </div>
                 </div>
             </div>
+            
         </section>
 
         <?php
