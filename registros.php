@@ -1911,7 +1911,7 @@
                                             <label>Familia</label>
                                             <select class="form-control">
                                                 <?php
-                                                $sql = "SELECT nombre_reino FROM reino";
+                                                $sql = "SELECT nombre_familia FROM familia";
 
                                                 $consulta = Conexion::obtener_conexion()->query($sql);
                                                 ?>
@@ -1919,7 +1919,7 @@
                                                 <?php
                                                 while ($fila = $consulta->fetch(PDO::FETCH_ASSOC)) {
                                                     ?>
-                                                    <option><?php echo $fila['nombre_reino'] ?></option>
+                                                    <option><?php echo $fila['nombre_familia'] ?></option>
 
                                                     <?php
                                                 }
