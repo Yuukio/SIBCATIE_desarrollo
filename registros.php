@@ -80,7 +80,7 @@
                                                     <th>Autor</th>
                                                     <th>Ingreso</th>
                                                     <th>Visible</th>
-                                                    <th>Revisión</th>
+                                                    <th>Identificado</th>
                                                     <th>Opciones</th>
                                                 </tr>
                                             </thead>
@@ -93,7 +93,7 @@
                                                     <th>Autor</th>
                                                     <th>Ingreso</th>
                                                     <th>Visible</th>
-                                                    <th>Revisión</th>
+                                                    <th>Identificado</th>
                                                     <th>Opciones</th>
 
                                                 </tr>

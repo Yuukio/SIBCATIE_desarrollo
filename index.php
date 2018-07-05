@@ -26,7 +26,7 @@ include_once 'plantillas/navbar.inc.php';
 
 <!-- BUSCAR ESPECIES -->
 <section id="buscar" class="bg-light">
-    <div class="container">
+    <div class="container" style="max-width: 1240px">
         <div class="row">
             <div class="col-lg-12 text-center">
                 <h2 class="section-heading text-uppercase">Registro de Especies</h2>
@@ -64,7 +64,7 @@ include_once 'plantillas/navbar.inc.php';
                         </div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-                                <h4 class="subheading">Colecciones</h4>
+                                <h4 class="subheading">Colecciones de Campo</h4>
                             </div>
                             <div class="timeline-body">
                                 <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
@@ -80,7 +80,7 @@ include_once 'plantillas/navbar.inc.php';
                         </div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-                                <h4 class="subheading">Banco de Semillas Hortícolas</h4>
+                                <h4 class="subheading">Colección Internacional de Café</h4>
                             </div>
                             <div class="timeline-body">
                                 <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
@@ -96,7 +96,7 @@ include_once 'plantillas/navbar.inc.php';
                         </div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-                                <h4 class="subheading">Cultivos Alimenticios</h4>
+                                <h4 class="subheading">Colección Internacional de Cacao</h4>
                             </div>
                             <div class="timeline-body">
                                 <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
@@ -112,11 +112,21 @@ include_once 'plantillas/navbar.inc.php';
 <section class="imagen-fondo">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-8 centrar" style="text-align: center; height: 150px">
-                <h5 style="color: white">
-                    <span style="font-weight: bold">SIBCATIE esta lleno de ventajas al registrar una cuenta.</span><br>Hecho especialmente para estudiar 
-                    y aprender sobre botanica al lado de expertos en la materia.
-                </h5>
+            <div class="col-md-8 centrar" style="height: 150px">
+                <div class="row" style="text-align: center">
+                    <div class="col-md-12">
+                        <h2 style="color: white">
+                            <span style="font-weight: bold">Registra tu propia cuenta y disfruta de los siguientes privilegios:</span>
+                        </h2>
+                    </div>
+                    <div class="col-md-12">
+                        <h5 style="color: white"><br>
+                            1. Realizar consultas sobre alguna especie no registrada en SIBCATIE.<br>
+                            2. Descarga cualquiera de nuestros registros en formado de Excel.<br>
+                            3. Crea tu propia lista de favoritos y revisa cuantas veces quieras tus registros guardados.
+                        </h5>
+                    </div>
+                </div>
             </div>
             <div class="col-md-4 centrar" style="height: 150px">
                 <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Registrar cuenta</a>
@@ -124,23 +134,6 @@ include_once 'plantillas/navbar.inc.php';
         </div>
     </div>
 </section>
-
-<!--********************************-->
-<select class="form-control">
-            <?php
-            /*$sql = "SELECT nombre_familia from familia ORDER BY nombre_familia ASC";
-            $consulta = Conexion::obtener_conexion()->query($sql);
-            while ($fila = $consulta->fetch(PDO::FETCH_ASSOC)) {
-                
-                echo '<option>' . $fila['nombre_familia'] . '</option>';
-            }*/
-            ?>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-        </select>
-<!--********************************-->
 
 <!-- SEMANA -->
 <section class="bg-light" id="portfolio">

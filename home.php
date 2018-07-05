@@ -77,16 +77,6 @@
                                             <i class="material-icons">zoom_out_map</i>
                                         </a>
                                     </li>
-                                    <li class="dropdown">
-                                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                            <i class="material-icons">more_vert</i>
-                                        </a>
-                                        <ul class="dropdown-menu pull-right">
-                                            <li><a href="javascript:void(0);">Agregar nuevo registro</a></li>
-                                            <li><a href="javascript:void(0);">Another action</a></li>
-                                            <li><a href="javascript:void(0);">Something else here</a></li>
-                                        </ul>
-                                    </li>
                                 </ul>
                             </div>
                             <div>
@@ -99,15 +89,19 @@
                                                     <tr style="background: white">
                                                         <th>ID</th>
                                                         <th>Familia</th>
+                                                        <th>Género</th>
+                                                        <th>Epíteto</th>
                                                         <th>Ingreso</th>
                                                         <th>Opciones</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <?php
-                                                    $sql_no_identificadas = "SELECT f.nombre_familia, p.fecha_ingreso, p.idPlanta 
+                                                    $sql_no_identificadas = "SELECT f.nombre_familia, p.fecha_ingreso, p.idPlanta, g.nombre_genero, e.nombre_epiteto
                                                                             FROM planta p 
-                                                                            INNER JOIN familia f ON p.Familia_idFamilia = f.idFamilia 
+                                                                            LEFT JOIN familia f ON p.Familia_idFamilia = f.idFamilia
+                                                                            LEFT JOIN genero g ON p.Genero_idGenero=g.idGenero
+                                                                            LEFT JOIN epiteto e ON p.Epiteto_idEpiteto=e.idEpiteto
                                                                             WHERE p.revision = 0";
 
                                                     $consulta_no_identificadas = Conexion::obtener_conexion()->query($sql_no_identificadas);
@@ -125,23 +119,25 @@
                                                         $id_nuevo = str_pad($id_no_identificada, 4, "0", STR_PAD_LEFT);
 
                                                         $idMasc_no_identificada = $anno . $mes . $dia . $id_nuevo;
+                                                        ?>
 
-                                                        echo'
                                                         <tr valign="top">
-                                                            <td>' . $id_nuevo . '</td> 
-                                                            <td>' . $file_no_identificada['nombre_familia'] . '</td>
-                                                            <td>' . $file_no_identificada['fecha_ingreso'] . '</td>
+                                                            <td><?php echo $id_nuevo ?></td> 
+                                                            <td><?php echo $file_no_identificada['nombre_familia'] ?></td>
+                                                            <td><?php echo $file_no_identificada['nombre_genero'] ?></td>
+                                                            <td><?php echo $file_no_identificada['nombre_epiteto'] ?></td>
+                                                            <td><?php echo $file_no_identificada['fecha_ingreso'] ?></td>
                                                             <td style="text-align:center;">
                                                                 <a href="#" style="color: #5DADE2">
                                                                     <i class="material-icons">edit</i>
                                                                 </a>
-                                                                    <i>&nbsp;</i>
+                                                                <i>&nbsp;</i>
                                                                 <a href="#" style="color: #E74C3C">
                                                                     <i class="material-icons">delete</i>
                                                                 </a>
                                                             </td>
                                                         </tr>
-                                                            ';
+                                                        <?php
                                                     }
                                                     ?>                                                    
                                                 </tbody>
@@ -166,16 +162,6 @@
                                 <a href="javascript:void(0);">
                                     <i class="material-icons">zoom_out_map</i>
                                 </a>
-                            </li>
-                            <li class="dropdown">
-                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                    <i class="material-icons">more_vert</i>
-                                </a>
-                                <ul class="dropdown-menu pull-right">
-                                    <li><a href="javascript:void(0);">Action</a></li>
-                                    <li><a href="javascript:void(0);">Another action</a></li>
-                                    <li><a href="javascript:void(0);">Something else here</a></li>
-                                </ul>
                             </li>
                         </ul>
                     </div>
@@ -254,7 +240,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <!--Usuarios registrados-->
             <div class="col-md-5">
                 <div class="card">
@@ -265,16 +251,6 @@
                                 <a href="javascript:void(0);">
                                     <i class="material-icons">zoom_out_map</i>
                                 </a>
-                            </li>
-                            <li class="dropdown">
-                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                    <i class="material-icons">more_vert</i>
-                                </a>
-                                <ul class="dropdown-menu pull-right">
-                                    <li><a href="javascript:void(0);">Action</a></li>
-                                    <li><a href="javascript:void(0);">Another action</a></li>
-                                    <li><a href="javascript:void(0);">Something else here</a></li>
-                                </ul>
                             </li>
                         </ul>
                     </div>
@@ -316,7 +292,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </section>
 
         <?php
