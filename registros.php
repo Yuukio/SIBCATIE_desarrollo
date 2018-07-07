@@ -531,20 +531,20 @@
             {
                 id_reino = $('#id-reino').val();
                 id_division = $('#id-division').val();
-                id_clase = $('id-clase').val();
-                id_orden = $('id-orden').val();
-                id_familia = $('id-familia').val();
-                id_genero = $('id-genero').val();
-                id_epiteto = $('id-epiteto').val();
-                id_determinado = $('id-determinado').val();
-                id_color = $('id-color').val();
-                id_forma = $('id-forma').val();
-                id_tipo = $('id-tipo').val();
-                autor = $('autor').val();
-                fuente = $('fuente').val();
-                altura = $('altura').val();
-                revision = $('revision').val();
-                visible = $('visible').val();
+                id_clase = $('#id-clase').val();
+                id_orden = $('#id-orden').val();
+                id_familia = $('#id-familia').val();
+                id_genero = $('#id-genero').val();
+                id_epiteto = $('#id-epiteto').val();
+                id_determinado = $('#id-determinado').val();
+                id_color = $('#id-color').val();
+                id_forma = $('#id-forma').val();
+                id_tipo = $('#id-tipo').val();
+                autor = $('#autor').val();
+                fuente = $('#fuente').val();
+                altura = $('#altura').val();
+                revision = $('#revision').val();
+                visible = $('#visible').val();
 
                 if (id_familia=="Indefinido")
                 {
@@ -563,6 +563,7 @@
                             if (r == 1) {
                                 alert("Agregado con éxito");
                             } else {
+                                console.log(r);
                                 alert("Error del servidor");
                             }
                         }

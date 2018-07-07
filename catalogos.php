@@ -100,7 +100,7 @@
                                                                     </a>
                                                                     <i>&nbsp;</i>
                                                                     <a href="#" style="color: #A1D490">
-                                                                        <i class="material-icons" data-toggle="modal" data-target="#modalReino-v" onclick="filtrarReino('<?php echo $datos_reino ?>')">description</i>
+                                                                        <i class="material-icons" data-toggle="modal" data-target="#modalReino-v" onclick="filtrarReino('<?php echo $id_reino ?>')">description</i>
                                                                     </a>
                                                                 </td>
                                                             </tr>
@@ -1613,6 +1613,39 @@
                 </div>
             </div>
 
+            <div>
+                <!--MODAL REGISTRO DE ACTIVIDAD-->
+            <div class="modal fade" id="modalReino-v" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="card">
+                            <div class="header bg-green">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close" 
+                                        style="font-size: 40px; line-height: 0.5; color: #fff; opacity: 1"><span aria-hidden="true">&times;</span></button>
+                                <h2>REGISTRO DE ACTIVIDAD</h2>
+                            </div>
+                            <div class="body">
+                                <table class="table table-bordered table-striped table-hover js-basic-example dataTable" id="tablaReinos">
+                                    <thead>
+                                        <tr style="background-color: white">
+                                            <th>Fecha</th>
+                                            <th>Usuario</th>
+                                            <th>Registro</th>
+                                            <th>Actividad</th>
+                                            <th>Revisión</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+       
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+
         </section>
 
         <!-- SCRIPT INSERTAR DATOS -->
@@ -2397,27 +2430,34 @@
         <!-- SCRIPT FILTRAR DATOS -->
         <script>
             //***** ACTUALIZAR REINO
-            $('#actualizar-reino').click(function ()
-            {
-                id_reino_f = $('#id-reino-f').val();
+
+            function filtrarReino(datos_reino) {
 
                 $.ajax({
                     type: "POST",
-                    url: "app/filtarDatos.php",
-                    data: {'funcion': 'filtrarReino', 'id_reino_f': id_reino_f},
+                    url: "app/filtrarDatos.php",
+                    data: {'funcion': 'filtrarReino', 'id_reino': datos_reino},
 
                     success: function (r) {
-                        if (r != 1) {
-                            alert("Error del servidor");
-                        }
+                        var datos = $.parseJSON(r);
+                        console.log(datos);
+                        var t = $('#tablaReinos').DataTable();
+                        t.clear().draw();
+                        $.each(datos,function(i,item)
+                        {
+                            t.row.add([
+                                item.fecha_ingreso,
+                                item.nombre_usuario,
+                                item.idPlanta,
+                                item.accion,
+                                item.revision
+
+                            ]).draw(false);
+                        });
+                          
+
                     }
                 });
-            });
-
-            function filtrarReino(datos_reino) {
-                di = datos_reino.split('-');
-                $('#id-reino').val(di[0]);
-                $id_reino_f = $('#nombre-reino-v').val(di[1]);
             }
         </script>
 

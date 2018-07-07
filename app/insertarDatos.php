@@ -202,7 +202,7 @@ elseif ($funcion == 'insertarRegistro') {
         $stmt->execute(array($id_familia));
         echo '1';
     } catch (Exception $e) {
-        echo '0';
+        echo $e;
     }
 }
 // ********INSERTAR ESTADO DE SALUD
