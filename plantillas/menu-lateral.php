@@ -59,8 +59,8 @@
         if (!isset($bandeja) || empty($bandeja)) {
             $bandeja = '';
         }
-        if (!isset($historial) || empty($historial)) {
-            $historial = '';
+        if (!isset($catalogos) || empty($catalogos)) {
+            $catalogos = '';
         }
         if (!isset($mapa) || empty($mapa)) {
             $mapa = '';
@@ -79,25 +79,28 @@
                         <span>Home</span>
                     </a>
                 </li>
+                
+                <li class="header">ADMINISTRACIÓN</li>
+                
                 <li class= "<?php echo $registros ?>" >
                     <a href="registros.php">
                         <i class="material-icons">view_list</i>
-                        <span>Administración de Registros</span>
+                        <span>Registro de Especies</span>
                     </a>
                 </li>
-                <!--<li class= "<?php echo $usuarios ?>" >
+                <li class= "<?php echo $usuarios ?>" >
                     <a href="usuarios.php">
                         <i class="material-icons">people</i>
-                        <span>Administración de Usuarios</span>
+                        <span>Usuarios registrados</span>
                     </a>
                 </li>
-                <li class= "<?php echo $historial ?>" >
-                    <a href="historial.php">
-                        <i class="material-icons">history</i>
-                        <span>Historial de Actividades</span>
+                <li class= "<?php echo $catalogos ?>" >
+                    <a href="catalogos.php">
+                        <i class="material-icons">view_module</i>
+                        <span>Catálogos taxonómicos</span>
                     </a>
                 </li>
-                <li class= "<?php echo $bandeja ?>" >
+                <!--<li class= "<?php echo $bandeja ?>" >
                     <a href="bandeja.php">
                         <i class="material-icons">inbox</i>
                         <span>Bandeja de Entrada</span>
@@ -134,5 +137,4 @@
         <!-- #Footer -->
     </aside>
     <!-- #FINAL# Barra Lateral Izquierda -->
-
 </section>

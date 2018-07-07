@@ -15,7 +15,7 @@ if ($funcion == 'insertarReino') {
     } catch (Exception $e) {
         echo '0';
     }
-} 
+}
 
 // ********INSERTAR DIVISION
 elseif ($funcion == 'insertarDivision') {
@@ -28,7 +28,7 @@ elseif ($funcion == 'insertarDivision') {
     } catch (Exception $e) {
         echo '0';
     }
-} 
+}
 
 // ********INSERTAR CLASE
 elseif ($funcion == 'insertarClase') {
@@ -166,6 +166,52 @@ elseif ($funcion == 'insertarEstadoSalud') {
         $query = "INSERT INTO estadosalud (nombre_estado) VALUES (?)";
         $stmt = $pdoConn->prepare($query);
         $stmt->execute(array($nombre_estadosalud));
+        echo '1';
+    } catch (Exception $e) {
+        echo '0';
+    }
+}
+// ********INSERTAR REGISTRO
+elseif ($funcion == 'insertarRegistro') {
+    $id_reino = $_POST['id_reino'];
+    $id_division = $_POST['id_division'];
+    $id_clase = $_POST['_id_clase'];
+    $id_orden = $_POST['id_orden'];
+    $id_familia = $_POST['id_familia'];
+    $id_genero = $_POST['id_genero'];
+    $id_epiteto = $_POST['id_epiteto'];
+    $id_determinado = $_POST['id_determinado'];
+    $id_color = $_POST['id_color'];
+    $id_forma = $_POST['id_forma'];
+    $id_tipo = $_POST['id_tipo'];
+    $autor = $_POST['autor'];
+    $fuente = $_POST['fuente'];
+    $altura = $_POST['altura'];
+    $revision = $_POST['revision'];
+    $visible = $_POST['visible'];
+
+    $nombre_cientifico = $genero . ' ' . $epiteto;
+
+    try {
+        $query = "INSERT INTO `planta`(`Familia_idFamilia`, `Genero_idGenero`, `Epiteto_idEpiteto`, `fecha_ingreso`, `fuente_informacion`, `altura`, `autor`, `Forma_idForma`, "
+                . "`Color_idColor`, `TipoHoja_idTipoHoja`, `DeterminadaPor_idDeterminadaPor`, `visible`, `revision`, `orden_idOrden`, `clase_idClase`, `reino_idReino`, "
+                . "`division_idDivision`, `nombre_cientifico`) "
+                . "VALUES ('$id_familia', '$id_genero', '$id_epiteto', 'NOW()', '$fuente', '$altura', '$autor', '$id_forma', '$id_color', '$id_tipo', '$id_determinado', "
+                . "'$visible', '$revision', '$id_orden', '$id_clase', '$id_reino', '$id_division', '$nombre_cientifico')";
+        $stmt = $pdoConn->prepare($query);
+        $stmt->execute(array($id_familia));
+        echo '1';
+    } catch (Exception $e) {
+        echo '0';
+    }
+}
+// ********INSERTAR ESTADO DE SALUD
+elseif ($funcion == 'insertarNombreComun') {
+    $nombre_comun = $_POST["n_comun"];
+    try {
+        $query = "INSERT INTO estadosalud (nombre_estado) VALUES (?)";
+        $stmt = $pdoConn->prepare($query);
+        $stmt->execute(array($nombre_comun));
         echo '1';
     } catch (Exception $e) {
         echo '0';
