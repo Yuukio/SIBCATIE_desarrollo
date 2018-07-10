@@ -49,9 +49,6 @@
                                             <li><a href="javascript:void(0);" class=" waves-effect waves-block" data-toggle="modal" data-target="#modalExcel">Lista de Excel</a></li>
                                             <li><a href="javascript:void(0);" class=" waves-effect waves-block" data-toggle="modal" data-target="#modalOcultos">Lista de Ocultos</a></li>
                                         </ul>
-
-
-
                                     </div>
                                 </div>
                             </li>
@@ -68,7 +65,6 @@
                                         <th>Epíteto</th>
                                         <th>Ingreso</th>
                                         <th>Visible</th>
-                                        <th>Identificado</th>
                                         <th>Opciones</th>
                                         <th>Seleccionar</th>
                                     </tr>
@@ -81,7 +77,6 @@
                                         <th>Epíteto</th>
                                         <th>Ingreso</th>
                                         <th>Visible</th>
-                                        <th>Identificado</th>
                                         <th>Opciones</th>
                                         <th>Seleccionar</th>
                                     </tr>
@@ -97,7 +92,8 @@
                                             INNER JOIN forma Fo ON P.Forma_idForma = Fo.idForma
                                             INNER JOIN color Co ON P.Color_idColor = Co.idColor
                                             INNER JOIN tipohoja Ti ON P.TipoHoja_idTipoHoja = Ti.idTipoHoja
-                                            INNER JOIN determinadapor De ON P.DeterminadaPor_idDeterminadaPor = De.idDeterminadaPor";
+                                            INNER JOIN determinadapor De ON P.DeterminadaPor_idDeterminadaPor = De.idDeterminadaPor
+                                            WHERE p.revision=1";
 
                                     $consulta = Conexion::obtener_conexion()->query($sql);
 
@@ -157,73 +153,37 @@
                                             <td><?php echo $fila['nombre_epiteto'] ?></td>
                                             <td><?php echo $fila['fecha_ingreso'] ?></td>
                                             <td style="text-align:center; width: 5px;"><?php echo $visible ?></td>
-                                            <td style="text-align:center; width: 5px;"><?php echo $revision ?></td>
                                             <td style="text-align:center;">
-                                                <a href="#" style="color: #3498DB">
+                                                <a href="#" style="color: #17c4cb">
                                                     <i class="material-icons" data-toggle="modal" data-target="#modalVer">search</i>
                                                 </a>
                                                 <i>&nbsp;</i>
-                                                <a href="#" style="color: #AF7AC5">
+                                                <a href="#" style="color: #ffc122">
                                                     <i class="material-icons" data-toggle="modal" data-target="#modalActualizar">edit</i>
                                                 </a>
                                                 <i>&nbsp;</i>
-                                                <a href="#" style="color: #F39C12">
-                                                    <i class="material-icons" data-toggle="modal" data-target="#modalFotos">add_a_photo</i>
+                                                <a href="#" style="color: #2a445f">
+                                                    <i class="material-icons" data-toggle="modal" data-target="#modalFotos">playlist_add</i>
+                                                </a>
+                                                <i>&nbsp;</i>
+                                                <a href="#" style="color: #ff6d3a">
+                                                    <i class="material-icons" data-toggle="modal" data-target="#modalComun">add_a_photo</i>
                                                 </a>
                                             </td>
-                                            <td><input type="checkbox" name="seleccion[]" value="<?php echo $id ?>"/></td>
+                                            <td style="text-align:center;">
+                                                <input type="checkbox" name="seleccion[]" value="<?php echo $id ?>"/>
+                                            </td>
                                         </tr>
                                         <?php
                                     }
                                     ?>
                                 </tbody>
                             </table>
-                            <input type="submit" name="ocultar2" value="Enviar a favoritos" class="btn btn-danger col-md-offset-10"/>
-
-                            <?php
-                            if (isset($_POST['ocultar2'])) {
-                                if (empty($_POST['seleccion'])) {
-                                    alert("No se ha seleccionado ningun registro");
-                                } else {
-                                    foreach ($_POST['seleccion'] as $id_oculto) {
-
-                                        $agregar_favoritos = $pdoConn->query("UPDATE `planta` SET `visible`= 0 WHERE idPlanta='$id_oculto'");
-
-                                        //$agregar_favoritos = Conexion::obtener_conexion()->query("UPDATE `planta` SET `visible`= 1 WHERE idPlanta='$id_favorito'");
-
-                                        /* $query = "UPDATE `planta` SET `visible`= 1 WHERE idPlanta='$id_favorito'";
-                                          $stmt = $pdoConn->prepare($registro_favorito);
-                                          $stmt->execute(array($seleccion_f)); */
-                                    }
-                                    alert("Registros enviados a lista de favoritos");
-                                }
-                            }
-                            ?>
                         </div>
                     </div>
                 </div>
 
-
-                <script>
-                    function openCity(evt, cityName) {
-                        var i, tabcontent, tablinks;
-                        tabcontent = document.getElementsByClassName("tabcontentC");
-                        for (i = 0; i < tabcontent.length; i++) {
-                            tabcontent[i].style.display = "none";
-                        }
-                        tablinks = document.getElementsByClassName("tablinks");
-                        for (i = 0; i < tablinks.length; i++) {
-                            tablinks[i].className = tablinks[i].className.replace(" active", "");
-                        }
-                        document.getElementById(cityName).style.display = "block";
-                        evt.currentTarget.className += " active";
-                    }
-
-                    // Get the element with id="defaultOpen" and click on it
-                    document.getElementById("defaultOpen").click();
-                </script>
-
-                <!-- ******************************* REGISTRAR DE PLANTA ************************************************** -->
+                <!-- ******************************* REGISTROR DE PLANTA ************************************************** -->
 
                 <!-- Modal REGISTRAR NUEVA PLANTA -->
                 <div class="modal fade" id="modalRegistroPlanta" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -272,7 +232,7 @@
                                                 <?php
                                                 while ($fila = $consulta->fetch(PDO::FETCH_ASSOC)) {
                                                     ?>
-                                                    <option><?php echo $fila['nombre_division'] ?></option>
+                                                    <option value="<?php echo $fila['idDivision'] ?>"><?php echo $fila['nombre_division'] ?></option>
                                                     <?php
                                                 }
                                                 ?>
@@ -514,7 +474,7 @@
                                 <div class="modal-footer">
                                     <button type="reset" class="btn btn-link waves-effect" style="margin-right: 100px">BORRAR</button>
                                     <button type="button" class="btn btn-link waves-effect" id="agregar-registro">AGREGAR</button>
-                                    <button type="button" class="btn btn-link waves-effect" data-dismiss="modal" aria-label="Close">CANCELAR</button>
+                                    <button type="button" class="btn btn-link waves-effect" data-dismiss="modal" aria-label="Close">CERRAR</button>
                                 </div>
 
                             </form>
@@ -526,7 +486,7 @@
         </section>
 
         <script>
-            //CREAR NUEVo REGISTRO
+            //CREAR NUEVO REGISTRO
             $('#agregar-registro').click(function ()
             {
                 id_reino = $('#id-reino').val();
@@ -546,9 +506,9 @@
                 revision = $('#revision').val();
                 visible = $('#visible').val();
 
-                if (id_familia=="Indefinido")
+                if (id_familia == "Indefinido")
                 {
-                    alert('Al menos debe pertenecer a una familia');
+                    alertify.warning('Debe seleccionar al menos el campo Familia');
                 } else
                 {
 
@@ -561,10 +521,13 @@
                         success: function (r) {
 
                             if (r == 1) {
-                                alert("Agregado con éxito");
+                                //console.log(r);
+                                //alert("Agregado con éxito");
+                                alertify.success("Registro agregado");
+
                             } else {
-                                console.log(r);
-                                alert("Error del servidor");
+                                //console.log(r);
+                                alertify.error("Error del servidor");
                             }
                         }
                     });
@@ -577,7 +540,7 @@
                 nombre_comun = $('#comun').val();
                 if (!nombre_comun)
                 {
-                    alert('Debe agregar un nombre común');
+                    alertify.warning('Debe agregar un nombre común');
                 } else
                 {
 
@@ -588,9 +551,10 @@
                         success: function (r) {
 
                             if (r == 1) {
-                                alert("Agregado con éxito");
+                                alertify.success("Agregado con éxito");
+
                             } else {
-                                alert("Error del servidor");
+                                alertify.error("Error del servidor");
                             }
                         }
                     });
@@ -624,6 +588,41 @@
              });
              }
              });*/
+
+        </script>
+
+
+        <!--AGREGAR NOMBRE COMUN-->
+        <script>
+
+            $('#ocultar').click(function ()
+            {
+                var checked = [];
+                $("input[name='seleccion[]']:checked").each(function ()
+                {
+                    checked.push(parseInt($(this).val()));
+                });
+
+                if (checked.length == 0)
+                {
+                    alertify.warning('No ha seleccionado ninguna casilla');
+                } else
+                {
+                    $.ajax({
+                        type: "POST",
+                        url: "app/actualizarDatos.php",
+                        data: {'funcion': 'ponerOcultos', 'oculto': checked},
+                        success: function (r) {
+
+                            if (r == 1) {
+                                alertify.success("Ocultos correctamente");
+                            } else {
+                                alertify.error("Error del servidor");
+                            }
+                        }
+                    });
+                }
+            });
 
         </script>
 

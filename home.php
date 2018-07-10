@@ -128,8 +128,20 @@
                                                             <td><?php echo $file_no_identificada['nombre_epiteto'] ?></td>
                                                             <td><?php echo $file_no_identificada['fecha_ingreso'] ?></td>
                                                             <td style="text-align:center;">
-                                                                <a href="#" style="color: #5DADE2">
-                                                                    <i class="material-icons">edit</i>
+                                                                <a href="#" style="color: #17c4cb">
+                                                                    <i class="material-icons" data-toggle="modal" data-target="#modalVer">search</i>
+                                                                </a>
+                                                                <i>&nbsp;</i>
+                                                                <a href="#" style="color: #ffc122">
+                                                                    <i class="material-icons" data-toggle="modal" data-target="#modalActualizar">edit</i>
+                                                                </a>
+                                                                <i>&nbsp;</i>
+                                                                <a href="#" style="color: #2a445f">
+                                                                    <i class="material-icons" data-toggle="modal" data-target="#modalFotos">playlist_add</i>
+                                                                </a>
+                                                                <i>&nbsp;</i>
+                                                                <a href="#" style="color: #ff6d3a">
+                                                                    <i class="material-icons" data-toggle="modal" data-target="#modalComun">add_a_photo</i>
                                                                 </a>
                                                                 <i>&nbsp;</i>
                                                                 <a href="#" style="color: #E74C3C">
@@ -315,8 +327,6 @@
                                                 <th>Epíteto</th>
                                                 <th>Autor</th>
                                                 <th>Ingreso</th>
-                                                <th>Visible</th>
-                                                <th>Identificado</th>
                                                 <th>Opciones</th>
                                             </tr>
                                         </thead>
@@ -328,8 +338,6 @@
                                                 <th>Epíteto</th>
                                                 <th>Autor</th>
                                                 <th>Ingreso</th>
-                                                <th>Visible</th>
-                                                <th>Identificado</th>
                                                 <th>Opciones</th>
 
                                             </tr>
@@ -369,34 +377,6 @@
 
                                                 $idMasc = $anno . $mes . $dia . $id_nuevo;
 
-                                                /* ingreso de iconos de revision */
-                                                if ($revision == 0) {
-
-                                                    $revision = '<a style="color: #E74C3C">
-                                                            <i class="material-icons">close</i>
-                                                        </a>
-                                                        ';
-                                                } else {
-                                                    $revision = '<a style="color: #27AE60">
-                                                            <i class="material-icons">check</i>
-                                                        </a>
-                                                        ';
-                                                }
-
-                                                /* ingreso de iconos de visible */
-                                                if ($visible == 0) {
-
-                                                    $visible = '<a style="color: #E74C3C">
-                                                            <i class="material-icons">visibility_off</i>
-                                                        </a>
-                                                        ';
-                                                } else {
-                                                    $visible = '<a style="color: #27AE60">
-                                                            <i class="material-icons">visibility</i>
-                                                        </a>
-                                                        ';
-                                                }
-
                                                 /* asignando en tabla */
                                                 ?>
                                                 <tr valign="top">
@@ -406,19 +386,25 @@
                                                     <td><?php echo $fila['nombre_epiteto'] ?></td>
                                                     <td><?php echo $fila['autor'] ?></td>
                                                     <td><?php echo $fila['fecha_ingreso'] ?></td>
-                                                    <td style="text-align:center; width: 5px;"><?php echo $visible ?></td>
-                                                    <td style="text-align:center; width: 5px;"><?php echo $revision ?></td>
                                                     <td style="text-align:center;">
-                                                        <a href="#" style="color: #3498DB">
+                                                        <a href="#" style="color: #17c4cb">
                                                             <i class="material-icons" data-toggle="modal" data-target="#modalVer">search</i>
                                                         </a>
                                                         <i>&nbsp;</i>
-                                                        <a href="#" style="color: #AF7AC5">
+                                                        <a href="#" style="color: #ffc122">
                                                             <i class="material-icons" data-toggle="modal" data-target="#modalActualizar">edit</i>
                                                         </a>
                                                         <i>&nbsp;</i>
-                                                        <a href="#" style="color: #F39C12">
-                                                            <i class="material-icons" data-toggle="modal" data-target="#modalFotos">add_a_photo</i>
+                                                        <a href="#" style="color: #2a445f">
+                                                            <i class="material-icons" data-toggle="modal" data-target="#modalFotos">playlist_add</i>
+                                                        </a>
+                                                        <i>&nbsp;</i>
+                                                        <a href="#" style="color: #ff6d3a">
+                                                            <i class="material-icons" data-toggle="modal" data-target="#modalComun">add_a_photo</i>
+                                                        </a>
+                                                        <i>&nbsp;</i>
+                                                        <a href="#" style="color: #E74C3C">
+                                                            <i class="material-icons">delete</i>
                                                         </a>
                                                     </td>
                                                 </tr>

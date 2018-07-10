@@ -36,7 +36,7 @@
                                 <div class="header bg-blue-grey" style="padding: 0px !important; padding-top: 8px">
                                     <ul class="nav nav-tabs" style="padding-left: 15px; padding-bottom: 15px; font-size: 18px; font-weight: normal; border-bottom: 0px solid #b7b7b7">
                                         <li class="active"><a data-toggle="tab" href="#administradores" style="color: #fff !important">ADMINISTRADORES</a></li>
-                                        <li><a data-toggle="tab" href="#ayudantes" style="color: #fff !important">AYUDANTES</a></li>
+                                        <li><a data-toggle="tab" href="#ayudantes" style="color: #fff !important">COLABORADORES</a></li>
                                         <li><a data-toggle="tab" href="#publico" style="color: #fff !important">PÚBLICO</a></li>
                                     </ul>
                                 </div>
@@ -249,7 +249,7 @@
                                                         </div>
                                                         <div class="custom-control custom-radio">
                                                             <input id="ayudante" name="roladmin" type="radio" class="custom-control-input" required>
-                                                            <label class="custom-control-label" for="ayudante">Ayudante</label>
+                                                            <label class="custom-control-label" for="ayudante">Colaborador</label>
                                                         </div>
                                                     </div>
                                                 </div>

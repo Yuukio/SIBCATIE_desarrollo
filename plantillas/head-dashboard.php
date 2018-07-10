@@ -41,6 +41,9 @@ Conexion::abrir_conexion();
     <link href="plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
     <link href="css/dashboard.css" rel="stylesheet">
 
+    <link rel="stylesheet" type="text/css" href="css/css/alertify.css">
+    <link rel="stylesheet" type="text/css" href="css/css/themes/default.css">
+
     <!-- Jquery Core Js -->
     <script src="plugins/jquery/jquery.min.js"></script>
 
@@ -77,5 +80,8 @@ Conexion::abrir_conexion();
 
     <script src="js/script.js"></script>
 
+    <script src="plugins/bootstrap-notify/bootstrap-notify.js"></script>
+    
+    <script src="js/alertify.js"></script>
 </head>
 
