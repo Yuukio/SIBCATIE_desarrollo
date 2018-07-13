@@ -3158,19 +3158,19 @@ input[type="button"].btn-block {
 }
 
 .dropdown-item:hover, .dropdown-item:focus {
-  color: #16181b;
+  color: #fff !important;
   text-decoration: none;
-  background-color: #f8f9fa;
+  background-color: #4caf50 !important;
 }
 
 .dropdown-item.active, .dropdown-item:active {
-  color: #fff;
+  color: #fff !important;
   text-decoration: none;
-  background-color: #007bff;
+  background-color: #37843b !important;
 }
 
 .dropdown-item.disabled, .dropdown-item:disabled {
-  color: #6c757d;
+  color: #6c757d !important;
   background-color: transparent;
 }
 

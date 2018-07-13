@@ -112,7 +112,7 @@ include_once 'plantillas/navbar.inc.php';
 <section class="imagen-fondo">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-8 centrar" style="height: 150px">
+            <div class="col-md-8">
                 <div class="row" style="text-align: center">
                     <div class="col-md-12">
                         <h2 style="color: white">
@@ -128,7 +128,7 @@ include_once 'plantillas/navbar.inc.php';
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 centrar" style="height: 150px">
+            <div class="col-md-4 centrar">
                 <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Registrar cuenta</a>
             </div>
         </div>

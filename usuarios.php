@@ -193,11 +193,11 @@
                                         <!---->
 
                                         <h4 class="mb-3" style="padding-bottom: 15px; text-align: center">Complete los campos de registro</h4>
-                                        <form class="needs-validation"  novalidate>
+                                        <form role="form">
                                             <div class="row">
                                                 <div class="col-md-6 mb-3">
                                                     <label for="firstName">Nombre</label>
-                                                    <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                                                    <input type="text" class="form-control" id="nombre" placeholder="" value="" required>
                                                     <!--<div class="invalid-feedback">
                                                         Valid first name is required.
                                                     </div>-->
@@ -205,7 +205,7 @@
 
                                                 <div class="col-md-6 mb-3">
                                                     <label for="lastName">Apellido</label>
-                                                    <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+                                                    <input type="text" class="form-control" id="apellido" placeholder="" value="" required>
                                                     <!--<div class="invalid-feedback">
                                                         Valid last name is required.
                                                     </div>-->
