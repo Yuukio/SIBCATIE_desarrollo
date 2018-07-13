@@ -1,9 +1,6 @@
 <?php
 include_once 'app/Conexion.inc.php';
 include_once 'app/RepositorioUsuario.inc.php';
-include_once 'app/LeerHistorial.inc.php';
-include_once 'app/RepositorioPlanta.inc.php';
-include_once 'app/LeerPlantas.inc.php';
 
 $titulo = 'SIBCATIE';
 
