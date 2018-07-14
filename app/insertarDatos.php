@@ -112,7 +112,7 @@ elseif ($funcion == 'insertarColor') {
 elseif ($funcion == 'insertarDeterminado') {
     $nombre_determinado = $_POST["n_determinado"];
     try {
-        $query = "INSERT INTO determinadapor (nombre_determinado) VALUES (?)";
+        $query = "INSERT INTO determinadopor (nombre_determinado) VALUES (?)";
         $stmt = $pdoConn->prepare($query);
         $stmt->execute(array($nombre_determinado));
         echo '1';
@@ -173,83 +173,39 @@ elseif ($funcion == 'insertarEstadoSalud') {
 }
 // ********INSERTAR REGISTRO
 elseif ($funcion == 'insertarRegistro') {
+    $id_reino = $_POST['id_reino'];
+    $id_division = $_POST['id_division'];
+    $id_clase = $_POST['_id_clase'];
+    $id_orden = $_POST['id_orden'];
+    $id_familia = $_POST['id_familia'];
+    $id_genero = $_POST['id_genero'];
+    $id_epiteto = $_POST['id_epiteto'];
+    $id_determinado = $_POST['id_determinado'];
+    $id_color = $_POST['id_color'];
+    $id_forma = $_POST['id_forma'];
+    $id_tipo = $_POST['id_tipo'];
+    $autor = $_POST['autor'];
+    $fuente = $_POST['fuente'];
+    $altura = $_POST['altura'];
+    $revision = $_POST['revision'];
+    $visible = $_POST['visible'];
 
-    // isset($_GET['date_from']) ? $_GET['date_from'] : date('Y-m-d');
-    /* $id_reino = $_POST["reino"];
-      $id_division = $_POST["division"];
-      $id_clase = $_POST["clase"];
-      $id_orden = $_POST["orden"];
-      $id_familia = $_POST["familia"];
-      $id_genero = $_POST["genero"];
-      $id_epiteto = $_POST["epiteto"];
-      $id_determinado = $_POST["determinado"];
-      $id_color = $_POST["color"];
-      $id_forma = $_POST["forma"];
-      $id_tipo = $_POST["tipo"];
-      $autor = $_POST["autor"];
-      $fuente = $_POST["fuente"];
-      $altura = $_POST["altura"];
-      $revision = $_POST["revision"];
-      $visible = $_POST["visible"]; */
-
-    $id_reino = $_POST["reino"] != 'Indefinido' ? $_POST["reino"] : null;
-    $id_division = $_POST["division"] != 'Indefinido' ? $_POST["division"] : null;
-    $id_clase = $_POST["clase"] != 'Indefinido' ? $_POST["clase"] : null;
-    $id_orden = $_POST["orden"] != 'Indefinido' ? $_POST["orden"] : null;
-    $id_familia = $_POST["familia"] != 'Indefinido' ? $_POST["familia"] : null;
-    $id_genero = $_POST["genero"] != 'Indefinido' ? $_POST["genero"] : null;
-    $id_epiteto = $_POST["epiteto"] != 'Indefinido' ? $_POST["epiteto"] : null;
-    $id_determinado = $_POST["determinado"] != 'Indefinido' ? $_POST["determinado"] : null;
-    $id_color = $_POST["color"] != 'Indefinido' ? $_POST["color"] : null;
-    $id_forma = $_POST["forma"] != 'Indefinido' ? $_POST["forma"] : null;
-    $id_tipo = $_POST["tipo"] != 'Indefinido' ? $_POST["tipo"] : null;
-    $autor = $_POST["autor"] != 'Indefinido' ? $_POST["autor"] : null;
-    $fuente = $_POST["fuente"] != 'Indefinido' ? $_POST["fuente"] : null;
-    $altura = $_POST["altura"] != 'Indefinido' ? $_POST["altura"] : null;
-
-    $sql_id = "SELECT idPlanta, fecha_ingreso FROM planta ORDER BY idPlanta DESC LIMIT 1";
-    $consulta = $pdoConn->query($sql_id);
-    $fila = $consulta->fetch(PDO::FETCH_ASSOC);
-
-    $id = $fila['idPlanta'];
-
-    $nombre_cientifico = $id_genero . ' ' . $id_epiteto;
-
-    $id = $fila['idPlanta'];
-    $id = $id + 1;
-
-    /*$fecha = $fila['fecha_ingreso'];
-    $fecha = explode('-', $fecha);
-    $anno = $fecha[0];
-    $mes = $fecha[1];
-    $dia = $fecha[2];*/
-
-    $id_nuevo = str_pad($id, 4, "0", STR_PAD_LEFT);
-
-    //$idMascara = $anno . 0 . $mes . 0 . $dia . 0 . $id_nuevo;
-
-    if (strpos($nombre_cientifico, 'Indefinido') !== false) {
-        $nombre_cientifico = null;
-    }
+    $nombre_cientifico = $genero . ' ' . $epiteto;
 
     try {
-        $query = "INSERT INTO `planta`(`idMascara`, `Familia_idFamilia`, `Genero_idGenero`, `Epiteto_idEpiteto`, `fecha_ingreso`, `fuente_informacion`, `altura`, `autor`, `Forma_idForma`, "
-                . "`Color_idColor`, `TipoHoja_idTipoHoja`, `DeterminadaPor_idDeterminadaPor`, `orden_idOrden`, `clase_idClase`, `reino_idReino`, "
+        $query = "INSERT INTO `planta`(`Familia_idFamilia`, `Genero_idGenero`, `Epiteto_idEpiteto`, `fecha_ingreso`, `fuente_informacion`, `altura`, `autor`, `Forma_idForma`, "
+                . "`Color_idColor`, `TipoHoja_idTipoHoja`, `DeterminadaPor_idDeterminadaPor`, `visible`, `revision`, `orden_idOrden`, `clase_idClase`, `reino_idReino`, "
                 . "`division_idDivision`, `nombre_cientifico`) "
-                . "VALUES (?, ?, ?, ?, NOW(), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-
+                . "VALUES ('$id_familia', '$id_genero', '$id_epiteto', 'NOW()', '$fuente', '$altura', '$autor', '$id_forma', '$id_color', '$id_tipo', '$id_determinado', "
+                . "'$visible', '$revision', '$id_orden', '$id_clase', '$id_reino', '$id_division', '$nombre_cientifico')";
         $stmt = $pdoConn->prepare($query);
-        $stmt->execute(array($id_nuevo, $id_familia, $id_genero, $id_epiteto, $fuente, $altura, $autor, $id_forma, $id_color, $id_tipo, $id_determinado, $id_orden, $id_clase, $id_reino, $id_division, $nombre_cientifico));
-        //$stmt->execute();
+        $stmt->execute(array($id_familia));
         echo '1';
-        //echo $query;
-        //$a = $stmt->errorInfo();
-        //echo $a[2];
     } catch (Exception $e) {
-        echo '0';
+        echo $e;
     }
 }
-// ********INSERTAR COMUN
+// ********INSERTAR ESTADO DE SALUD
 elseif ($funcion == 'insertarNombreComun') {
     $nombre_comun = $_POST["n_comun"];
     try {

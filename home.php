@@ -104,6 +104,47 @@ include_once 'plantillas/head-dashboard.php';
                                                                             LEFT JOIN epiteto e ON p.Epiteto_idEpiteto=e.idEpiteto
                                                                             WHERE p.revision = 0";
 
+<<<<<<< HEAD
+                                                    $consulta_no_identificadas = Conexion::obtener_conexion()->query($sql_no_identificadas);
+
+                                                    while ($file_no_identificada = $consulta_no_identificadas->fetch(PDO::FETCH_ASSOC)) {
+
+                                                        $id_no_identificada = $file_no_identificada['idPlanta'];
+
+                                                        $fecha = $file_no_identificada['fecha_ingreso'];
+                                                        $fecha = explode('-', $fecha);
+                                                        $anno = $fecha[0];
+                                                        $mes = $fecha[1];
+                                                        $dia = $fecha[2];
+
+                                                        $id_nuevo = str_pad($id_no_identificada, 4, "0", STR_PAD_LEFT);
+
+                                                        $idMasc_no_identificada = $anno . $mes . $dia . $id_nuevo;
+                                                        ?>
+
+                                                        <tr valign="top">
+                                                            <td><?php echo $id_nuevo ?></td> 
+                                                            <td><?php echo $file_no_identificada['nombre_familia'] ?></td>
+                                                            <td><?php echo $file_no_identificada['nombre_genero'] ?></td>
+                                                            <td><?php echo $file_no_identificada['nombre_epiteto'] ?></td>
+                                                            <td><?php echo $file_no_identificada['fecha_ingreso'] ?></td>
+                                                            <td style="text-align:center;">
+                                                                <a href="#" style="color: #5DADE2">
+                                                                    <i class="material-icons">edit</i>
+                                                                </a>
+                                                                <i>&nbsp;</i>
+                                                                <a href="#" style="color: #E74C3C">
+                                                                    <i class="material-icons">delete</i>
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                        <?php
+                                                    }
+                                                    ?>                                                    
+                                                </tbody>
+                                            </table>
+                                        </div>
+=======
                                                 $consulta_no_identificadas = Conexion::obtener_conexion()->query($sql_no_identificadas);
 
                                                 while ($file_no_identificada = $consulta_no_identificadas->fetch(PDO::FETCH_ASSOC)) {
@@ -154,6 +195,7 @@ include_once 'plantillas/head-dashboard.php';
                                                 ?>                                                    
                                             </tbody>
                                         </table>
+>>>>>>> parent of bdf6985... Revert "12"
                                     </div>
                                 </div>
                             </div>
@@ -282,7 +324,40 @@ include_once 'plantillas/head-dashboard.php';
                                         <?php
                                         $sql_usuarios = "SELECT nombre, apellido, email, telefono FROM usuario WHERE seccion_idseccion=1 AND activo=1 AND (rol_idrol=0 OR rol_idrol=1) ORDER BY apellido ASC";
 
+<<<<<<< HEAD
+            <!--Usuarios registrados-->
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="header bg-cyan">
+                        <h2>USUARIOS ADMINISTRADORES</h2>
+                        <ul class="header-dropdown m-r--5">
+                            <li>
+                                <a href="javascript:void(0);" class=" waves-effect waves-block" data-toggle="modal" data-target="#modalUsuariosAdministradores">
+                                    <i class="material-icons">zoom_out_map</i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="scrollable-area">
+                            <div class="row">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                                        <thead>
+                                            <tr style="background: white">
+                                                <th>Nombre</th>
+                                                <th>Email</th>
+                                                <th>Teléfono</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            $sql_usuarios = "SELECT nombre, apellido, email, telefono FROM usuario WHERE seccion_idseccion=1 AND activo=1 AND (rol_idrol=0 OR rol_idrol=1) ORDER BY apellido ASC";
+
+                                            $consulta_usuarios = Conexion::obtener_conexion()->query($sql_usuarios);
+=======
                                         $consulta_usuarios = Conexion::obtener_conexion()->query($sql_usuarios);
+>>>>>>> parent of bdf6985... Revert "12"
 
                                         while ($file_usuarios = $consulta_usuarios->fetch(PDO::FETCH_ASSOC)) {
 
@@ -340,11 +415,58 @@ include_once 'plantillas/head-dashboard.php';
                                             <th>Ingreso</th>
                                             <th>Opciones</th>
 
+<<<<<<< HEAD
+            <!--MODAL NO IDENTIFICADAS-->
+            <div class="modal fade" id="modalNoIdentificadas" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document" style="width: 80%">
+                    <div class="modal-content" style="width: 1400px">
+                        <div class="card">
+                            <div class="header bg-red">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close" 
+                                        style="font-size: 40px; line-height: 0.5; color: #fff; opacity: 1"><span aria-hidden="true">&times;</span></button>
+                                <h2>ESPECIES INDEFINIDAS</h2>                                
+                            </div>
+                            <div class="body">
+                                <div class="table-responsive">
+                                        <!--<table class="table table-bordered table-striped table-hover">-->
+                                    <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Familia</th>
+                                                <th>Género</th>
+                                                <th>Epíteto</th>
+                                                <th>Autor</th>
+                                                <th>Ingreso</th>
+                                                <th>Visible</th>
+                                                <th>Identificado</th>
+                                                <th>Opciones</th>
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Familia</th>
+                                                <th>Género</th>
+                                                <th>Epíteto</th>
+                                                <th>Autor</th>
+                                                <th>Ingreso</th>
+                                                <th>Visible</th>
+                                                <th>Identificado</th>
+                                                <th>Opciones</th>
+
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+                                            <?php
+                                            $sql = "SELECT P.idPlanta, P.autor, P.fecha_ingreso, P.fuente_informacion, P.altura, P.reproduccion, P.visible, P.revision, Fa.nombre_familia, 
+=======
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                         <?php
                                         $sql = "SELECT P.idPlanta, P.autor, P.fecha_ingreso, P.fuente_informacion, P.altura, P.reproduccion, P.visible, P.revision, Fa.nombre_familia, 
+>>>>>>> parent of bdf6985... Revert "12"
                                                     Ge.nombre_genero, Ep.nombre_epiteto, Fo.nombre_forma, Co.nombre_color, De.nombre_determinado, Ti.nombre_hoja 
                                                     FROM planta P 
                                                     LEFT JOIN familia Fa ON P.Familia_idFamilia = Fa.idFamilia
@@ -377,7 +499,65 @@ include_once 'plantillas/head-dashboard.php';
 
                                             $idMasc = $anno . $mes . $dia . $id_nuevo;
 
+<<<<<<< HEAD
+                                                /* ingreso de iconos de revision */
+                                                if ($revision == 0) {
+
+                                                    $revision = '<a style="color: #E74C3C">
+                                                            <i class="material-icons">close</i>
+                                                        </a>
+                                                        ';
+                                                } else {
+                                                    $revision = '<a style="color: #27AE60">
+                                                            <i class="material-icons">check</i>
+                                                        </a>
+                                                        ';
+                                                }
+
+                                                /* ingreso de iconos de visible */
+                                                if ($visible == 0) {
+
+                                                    $visible = '<a style="color: #E74C3C">
+                                                            <i class="material-icons">visibility_off</i>
+                                                        </a>
+                                                        ';
+                                                } else {
+                                                    $visible = '<a style="color: #27AE60">
+                                                            <i class="material-icons">visibility</i>
+                                                        </a>
+                                                        ';
+                                                }
+
+                                                /* asignando en tabla */
+                                                ?>
+                                                <tr valign="top">
+                                                    <td><?php echo $idMasc ?></td> 
+                                                    <td><?php echo $fila['nombre_familia'] ?></td>
+                                                    <td><?php echo $fila['nombre_genero'] ?></td>
+                                                    <td><?php echo $fila['nombre_epiteto'] ?></td>
+                                                    <td><?php echo $fila['autor'] ?></td>
+                                                    <td><?php echo $fila['fecha_ingreso'] ?></td>
+                                                    <td style="text-align:center; width: 5px;"><?php echo $visible ?></td>
+                                                    <td style="text-align:center; width: 5px;"><?php echo $revision ?></td>
+                                                    <td style="text-align:center;">
+                                                        <a href="#" style="color: #3498DB">
+                                                            <i class="material-icons" data-toggle="modal" data-target="#modalVer">search</i>
+                                                        </a>
+                                                        <i>&nbsp;</i>
+                                                        <a href="#" style="color: #AF7AC5">
+                                                            <i class="material-icons" data-toggle="modal" data-target="#modalActualizar">edit</i>
+                                                        </a>
+                                                        <i>&nbsp;</i>
+                                                        <a href="#" style="color: #F39C12">
+                                                            <i class="material-icons" data-toggle="modal" data-target="#modalFotos">add_a_photo</i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <?php
+                                            }
+=======
                                             /* asignando en tabla */
+>>>>>>> parent of bdf6985... Revert "12"
                                             ?>
                                             <tr valign="top">
                                                 <td><?php echo $idMasc ?></td> 

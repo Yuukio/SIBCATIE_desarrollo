@@ -1,8 +1,8 @@
 <?php
-include_once 'app/config.inc.php';
 include_once 'app/Conexion.inc.php';
-include_once 'app/Usuario.inc.php';
 include_once 'app/RepositorioUsuario.inc.php';
+<<<<<<< HEAD
+=======
 include_once 'app/validadorRegistroPublico.inc.php';
 include_once 'app/validadorSesionPublico.inc.php';
 include_once 'app/Redireccion.inc.php';
@@ -57,17 +57,12 @@ if (isset($_POST['enviar'])) {
 
     Conexion::cerrar_conexion();
 }
+>>>>>>> parent of bdf6985... Revert "12"
 
 $titulo = 'SIBCATIE';
 
 include_once 'plantillas/documento-declaracion.inc.php';
 ?>
-
-<style>
-    label{
-        display: contents !important;
-    }
-</style>
 
 <body style="background: #f2f2f2;">
 
@@ -91,89 +86,104 @@ include_once 'plantillas/documento-declaracion.inc.php';
         </div>
     </nav>
 
-    <!--REGISTRAR CUENTA-->
     <div class="container-fluid div-sesion sombra">
-        <div class="row">
-
-            <!--iniciar secion-->
-            <div class="col-md-4">
+        <!--registrar cuenta-->
+        <div class="container-fluid div-registro">
+            <div class="row">
                 <div class="col-md-12 col-all">
-                    <h2>Inicia sesion</h2>
-                    <p class="subhead">Ya tienes cuenta? Inicia sesión más abajo.</p>
+                    <h2>Registrar cuenta en SIBCATIE</h2>
+                    <p class="subhead">¡Únete a SIBCATIE y descubre tus ventajas!</p>
                 </div>
-                <form role="form" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
-                    <div class="col-md-12 col-all">
-                        <p>
-                            <label for="signup_with_profile_email" class="required">
-                                <span class="label-text">Nombre de Usuario</span>
-                                <input class="std-form" type="text" id="nombre_usuario" name="nombre_usuario"  
-                                <?php
-                                if (isset($_POST['login']) && isset($_POST['nombre_usuario']) && !empty($_POST['nombre_usuario'])) {
-                                    echo 'value="' . $_POST['nombre_usuario'] . '"';
-                                }
-                                ?>
-                                       required autofocus>
-                            </label>
-                        </p>
-                    </div>
-                    <div class="col-md-12 col-all">
-                        <p>
-                            <label for="signup_with_profile_password" class="required">
-                                <span class="label-text">Contraseña</span>
-                                <input class="std-form" type="password" id="password" name="password" required>
-                            </label>
-                        </p>
-                    </div>
-
-                    <?php
-                    if (isset($_POST['login'])) {
-                        $validador_s->mostrarError();
-                    }
-                    ?>
-
-                    <div class="col-md-12 col-all" style="text-align: center">
-                        <button class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" type="submit" name="login">
-                            Iniciar Sesión
-                        </button>
-                    </div>
-                </form>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-all">
+                    <p>
+                        <label for="signup_with_profile_email" class="required">
+                            <span class="label-text">Dirección de Correo Electrónico</span>
+                            <input class="std-form">
+                        </label>
+                    </p>
+                </div>
+                <div class="col-md-6 col-all">
+                    <p>
+                        <label for="signup_with_profile_username" class="required">
+                            <span class="label-text">Nombre de Usuario</span>
+                            <input class="std-form">
+                        </label>
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-all">
+                    <p>
+                        <label for="signup_with_profile_password" class="required">
+                            <span class="label-text">Contrasena</span>
+                            <input class="std-form">
+                        </label>
+                    </p>
+                </div>
+                <div class="col-md-6 col-all">
+                    <p>
+                        <label for="signup_with_profile_password" class="required">
+                            <span class="label-text">Repetir contrasena</span>
+                            <input class="std-form">
+                        </label>
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-all" style="text-align: center">
+                    <button class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" type="submit">
+                        Crear una Cuenta
+                    </button>
+                </div>
                 <div class="col-md-12" style="text-align: center; padding-top: 20px">
                     <p>
                         <small>
-                            ¿Olvidaste tu contraña? Ingrese 
-                            <a href="#">aquí.</a>
+                            Al hacer clic en "Registrarse", aceptas  
+                            <a href="#">Términos de Servicio</a> 
+                            y la 
+                            <a href="#">Política de Privacidad</a>.
                         </small>
                     </p>
                 </div>
-
             </div>
-            <div class="col-md-1">
+        </div>
 
+        <!--iniciar secion-->
+        <div class="col-md-4">
+            <div class="col-md-12 col-all">
+                <h2>Inicia sesion</h2>
+                <p class="subhead">Ya tienes cuenta? Inicia sesion mas abajo.</p>
             </div>
-
-            <!--registrar cuenta-->
-            <div class="col-md-7">
-                <div class="row">
-                    <div class="col-md-12 col-all">
-                        <h2>Registrar cuenta en SIBCATIE</h2>
-                        <p class="subhead">¡Únete a SIBCATIE y descubre tus ventajas!</p>
-                    </div>
-                    <div class="col-md-12">
-                        <!--**************FORMULARIO PUBLICO**************-->
-                        <form role="form" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
-
-                            <?php
-                            if (isset($_POST['enviar'])) {
-                                include_once './plantillas/registroPublico_validado.inc.php';
-                            } else {
-
-                                include_once './plantillas/registroPublico_vacio.inc.php';
-                            }
-                            ?>
-
-                        </form>
-                    </div>
-                </div>
+            <div class="col-md-12 col-all">
+                <p>
+                    <label for="signup_with_profile_email" class="required">
+                        <span class="label-text">Correo Electronico o Usuario</span>
+                        <input class="std-form">
+                    </label>
+                </p>
+            </div>
+            <div class="col-md-12 col-all">
+                <p>
+                    <label for="signup_with_profile_password" class="required">
+                        <span class="label-text">Contraseña</span>
+                        <input class="std-form">
+                    </label>
+                </p>
+            </div>
+            <div class="col-md-12 col-all" style="text-align: center">
+                <button class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" type="submit">
+                    Iniciar Sesión
+                </button>
+            </div>
+            <div class="col-md-12" style="text-align: center; padding-top: 20px">
+                <p>
+                    <small>
+                        ¿Olvidaste tu contraña? Ingrese 
+                        <a href="#">aquí.</a>
+                    </small>
+                </p>
             </div>
         </div>
     </div>

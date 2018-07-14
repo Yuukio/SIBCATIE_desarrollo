@@ -22,6 +22,7 @@ include_once 'plantillas/head-dashboard.php';
     include_once 'plantillas/menu-lateral.php';
     ?>
 
+<<<<<<< HEAD
     <!-- Centro del Contenido-->
     <section class="content">
         <div class="container-fluid">
@@ -68,6 +69,44 @@ include_once 'plantillas/head-dashboard.php';
                                                                     WHERE u.rol_idrol = 1";
 
                                                     $consulta_admin = Conexion::obtener_conexion()->query($sql_admin);
+=======
+    <body class="theme-red">
+
+        <?php
+        $usuarios = "active";
+        //------ Cargar Pantalla ------
+        include_once 'plantillas/cargar-pantalla.php';
+        //------ FINAL Cargar Pantalla ------
+        //------ Barra superior ------
+        include_once 'plantillas/barra-superior.php';
+        // ------ FINAL - Barra ruperior ------
+        // ------ Menu lateral ------
+        include_once 'plantillas/menu-lateral.php';
+        // ------ Final - Menu lateral ------
+        ?>
+
+
+        <!-- Centro del Contenido-->
+        <section class="content">
+            <div class="container-fluid">
+
+                <div class="row clearfix">
+
+                    <!--**********LISTA DE USUARIOS****************************-->
+                    <div class="col-md-8">
+                        <!--Usuarios registrados-->
+                        <div class="card">
+                            <header>
+                                <div class="header bg-blue-grey" style="padding: 0px !important; padding-top: 8px">
+                                    <ul class="nav nav-tabs" style="padding-left: 15px; padding-bottom: 15px; font-size: 18px; font-weight: normal; border-bottom: 0px solid #b7b7b7">
+                                        <li class="active"><a data-toggle="tab" href="#administradores" style="color: #fff !important">ADMINISTRADORES</a></li>
+                                        <li><a data-toggle="tab" href="#ayudantes" style="color: #fff !important">AYUDANTES</a></li>
+                                        <li><a data-toggle="tab" href="#publico" style="color: #fff !important">PÚBLICO</a></li>
+                                    </ul>
+                                </div>
+                            </header>
+                            <div class="body">
+>>>>>>> ebf3bf95b7b064e8c7cdd3394a2c623fccc16b63
 
                                                     while ($file_admin = $consulta_admin->fetch(PDO::FETCH_ASSOC)) {
 
@@ -180,6 +219,7 @@ include_once 'plantillas/head-dashboard.php';
                     </div>
                 </div>
 
+<<<<<<< HEAD
                 <!--**********REGISTRO DE USUARIOS********************-->
                 <div class="col-md-4">
                     <div class="card">
@@ -209,6 +249,38 @@ include_once 'plantillas/head-dashboard.php';
                                                 <!--<div class="invalid-feedback">
                                                     Valid last name is required.
                                                 </div>-->
+=======
+                    <!--**********REGISTRO DE USUARIOS********************-->
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="header bg-blue">
+                                <h2>REGISTRAR USUARIO</h2>
+                            </div>
+                            <div class="body">
+                                <div class="container-fluid">
+                                    <div class="row clearfix">
+
+                                        <!---->
+
+                                        <h4 class="mb-3" style="padding-bottom: 15px; text-align: center">Complete los campos de registro</h4>
+                                        <form class="needs-validation"  novalidate>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="firstName">Nombre</label>
+                                                    <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                                                    <!--<div class="invalid-feedback">
+                                                        Valid first name is required.
+                                                    </div>-->
+                                                </div>
+
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="lastName">Apellido</label>
+                                                    <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+                                                    <!--<div class="invalid-feedback">
+                                                        Valid last name is required.
+                                                    </div>-->
+                                                </div>
+>>>>>>> ebf3bf95b7b064e8c7cdd3394a2c623fccc16b63
                                             </div>
                                         </div>
 
@@ -239,6 +311,7 @@ include_once 'plantillas/head-dashboard.php';
 
                                         <hr class="mb-4">
 
+<<<<<<< HEAD
                                         <div class="container-fluid">
                                             <div class="col-md-6">
                                                 <h4 class="">Rol administrativo</h4>
@@ -250,6 +323,22 @@ include_once 'plantillas/head-dashboard.php';
                                                     <div class="custom-control custom-radio">
                                                         <input id="ayudante" name="roladmin" type="radio" class="custom-control-input" required>
                                                         <label class="custom-control-label" for="ayudante">Colaborador</label>
+=======
+                                            <hr class="mb-4">
+
+                                            <div class="container-fluid">
+                                                <div class="col-md-6">
+                                                    <h4 class="">Rol administrativo</h4>
+                                                    <div class="d-block my-3">
+                                                        <div class="custom-control custom-radio">
+                                                            <input id="admin" name="roladmin" type="radio" class="custom-control-input" required>
+                                                            <label class="custom-control-label" for="admin">Administrador</label>
+                                                        </div>
+                                                        <div class="custom-control custom-radio">
+                                                            <input id="ayudante" name="roladmin" type="radio" class="custom-control-input" required>
+                                                            <label class="custom-control-label" for="ayudante">Ayudante</label>
+                                                        </div>
+>>>>>>> ebf3bf95b7b064e8c7cdd3394a2c623fccc16b63
                                                     </div>
                                                 </div>
                                             </div>

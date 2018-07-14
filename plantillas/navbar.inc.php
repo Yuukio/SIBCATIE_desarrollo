@@ -1,7 +1,4 @@
 <?php
-include_once 'app/ControlSesion.inc.php';
-include_once 'app/config.inc.php';
-
 Conexion::abrir_conexion();
 ?>
 
@@ -24,7 +21,7 @@ Conexion::abrir_conexion();
                     if (ControlSesion::sesionIniciada() AND (ControlSesion::rolAdminNativa() OR ControlSesion::rolColaboradorNativa())) {
                         ?>
                         <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="<?php echo RUTA_DASHBOARD ?>">Administracion</a>
+                            <a class="nav-link js-scroll-trigger" href="home.php">Administracion</a>
                         </li>
                         <?php
                     }
@@ -48,6 +45,19 @@ Conexion::abrir_conexion();
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="#contact">Contacto</a>
                     </li>
+<<<<<<< HEAD
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#">
+                            <?php
+                            echo $total_usuarios;
+                            ?>
+                        </a> 
+                    </li>
+                    <li style="padding-right: 60px"></li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="sesion.php">Iniciar sesión</a>
+                    </li>
+=======
                     <li style="padding-right: 60px"></li>
 
                     <?php
@@ -82,6 +92,7 @@ Conexion::abrir_conexion();
                         <?php
                     }
                     ?>
+>>>>>>> parent of bdf6985... Revert "12"
                 </ul>
             </div>
         </div>

@@ -40,6 +40,7 @@ include_once 'plantillas/head-dashboard.php';
                                 <button type="submit" name="ocultar" id="ocultar" class="btn btn-info waves-effect">Ocultar</button>                                    
                                 <button type="button" class="btn btn-info waves-effect" data-toggle="modal" data-target="#modalRegistroPlanta">Agregar</button>
                                 <div class="btn-group" role="group">
+<<<<<<< HEAD
                                     <button type="button" class="btn btn-info waves-effect dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                                         Listas
                                         <span class="caret"></span>
@@ -84,6 +85,62 @@ include_once 'plantillas/head-dashboard.php';
                             <tbody>
                                 <?php
                                 $sql = "SELECT P.idPlanta, P.autor, P.fecha_ingreso, P.fuente_informacion, P.altura, P.reproduccion, P.visible, P.revision, Fa.nombre_familia, 
+=======
+                                    <button type="submit" name="favoritos" id="favoritos" class="btn btn-info waves-effect">Favorito</button>
+                                    <button type="button" name="exportar" id="exportar" class="btn btn-info waves-effect">Exportar</button>
+                                    <button type="submit" name="ocultar" id="ocultar" class="btn btn-info waves-effect">Ocultar</button>                                    
+                                    <button type="button" class="btn btn-info waves-effect" data-toggle="modal" data-target="#modalRegistroPlanta">Agregar</button>
+                                    <div class="btn-group" role="group">
+                                        <button type="button" class="btn btn-info waves-effect dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                            Listas
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="javascript:void(0);" class=" waves-effect waves-block" data-toggle="modal" data-target="#modalFavoritos">Lista de Favoritos</a></li>
+                                            <li><a href="javascript:void(0);" class=" waves-effect waves-block" data-toggle="modal" data-target="#modalExcel">Lista de Excel</a></li>
+                                            <li><a href="javascript:void(0);" class=" waves-effect waves-block" data-toggle="modal" data-target="#modalOcultos">Lista de Ocultos</a></li>
+                                        </ul>
+
+
+
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Familia</th>
+                                        <th>Género</th>
+                                        <th>Epíteto</th>
+                                        <th>Ingreso</th>
+                                        <th>Visible</th>
+                                        <th>Identificado</th>
+                                        <th>Opciones</th>
+                                        <th>Seleccionar</th>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Familia</th>
+                                        <th>Género</th>
+                                        <th>Epíteto</th>
+                                        <th>Ingreso</th>
+                                        <th>Visible</th>
+                                        <th>Identificado</th>
+                                        <th>Opciones</th>
+                                        <th>Seleccionar</th>
+                                    </tr>
+                                </tfoot>
+                                <tbody>
+                                    <?php
+                                    $sql = "SELECT P.idPlanta, P.autor, P.fecha_ingreso, P.fuente_informacion, P.altura, P.reproduccion, P.visible, P.revision, Fa.nombre_familia, 
+>>>>>>> ebf3bf95b7b064e8c7cdd3394a2c623fccc16b63
                                             Ge.nombre_genero, Ep.nombre_epiteto, Fo.nombre_forma, Co.nombre_color, De.nombre_determinado, Ti.nombre_hoja 
                                             FROM planta P 
                                             INNER JOIN familia Fa ON P.Familia_idFamilia = Fa.idFamilia
@@ -92,8 +149,7 @@ include_once 'plantillas/head-dashboard.php';
                                             INNER JOIN forma Fo ON P.Forma_idForma = Fo.idForma
                                             INNER JOIN color Co ON P.Color_idColor = Co.idColor
                                             INNER JOIN tipohoja Ti ON P.TipoHoja_idTipoHoja = Ti.idTipoHoja
-                                            INNER JOIN determinadapor De ON P.DeterminadaPor_idDeterminadaPor = De.idDeterminadaPor
-                                            WHERE p.revision=1";
+                                            INNER JOIN determinadapor De ON P.DeterminadaPor_idDeterminadaPor = De.idDeterminadaPor";
 
                                 $consulta = Conexion::obtener_conexion()->query($sql);
 
@@ -142,10 +198,42 @@ include_once 'plantillas/head-dashboard.php';
                                                             <i class="material-icons">visibility</i>
                                                         </a>
                                                         ';
+<<<<<<< HEAD
+=======
+                                        }
+
+                                        /* asignando en tabla */
+                                        ?>
+                                        <tr valign="top">
+                                            <td><?php echo $idMasc ?></td> 
+                                            <td><?php echo $fila['nombre_familia'] ?></td>
+                                            <td><?php echo $fila['nombre_genero'] ?></td>
+                                            <td><?php echo $fila['nombre_epiteto'] ?></td>
+                                            <td><?php echo $fila['fecha_ingreso'] ?></td>
+                                            <td style="text-align:center; width: 5px;"><?php echo $visible ?></td>
+                                            <td style="text-align:center; width: 5px;"><?php echo $revision ?></td>
+                                            <td style="text-align:center;">
+                                                <a href="#" style="color: #3498DB">
+                                                    <i class="material-icons" data-toggle="modal" data-target="#modalVer">search</i>
+                                                </a>
+                                                <i>&nbsp;</i>
+                                                <a href="#" style="color: #AF7AC5">
+                                                    <i class="material-icons" data-toggle="modal" data-target="#modalActualizar">edit</i>
+                                                </a>
+                                                <i>&nbsp;</i>
+                                                <a href="#" style="color: #F39C12">
+                                                    <i class="material-icons" data-toggle="modal" data-target="#modalFotos">add_a_photo</i>
+                                                </a>
+                                            </td>
+                                            <td><input type="checkbox" name="seleccion[]" value="<?php echo $id ?>"/></td>
+                                        </tr>
+                                        <?php
+>>>>>>> ebf3bf95b7b064e8c7cdd3394a2c623fccc16b63
                                     }
 
                                     /* asignando en tabla */
                                     ?>
+<<<<<<< HEAD
                                     <tr valign="top">
                                         <td><?php echo $idMasc ?></td> 
                                         <td><?php echo $fila['nombre_familia'] ?></td>
@@ -179,11 +267,84 @@ include_once 'plantillas/head-dashboard.php';
                                 ?>
                             </tbody>
                         </table>
+=======
+                                </tbody>
+                            </table>
+                            <input type="submit" name="ocultar2" value="Enviar a favoritos" class="btn btn-danger col-md-offset-10"/>
+
+                            <?php
+                            if (isset($_POST['ocultar2'])) {
+                                if (empty($_POST['seleccion'])) {
+                                    alert("No se ha seleccionado ningun registro");
+                                } else {
+                                    foreach ($_POST['seleccion'] as $id_oculto) {
+
+                                        $agregar_favoritos = $pdoConn->query("UPDATE `planta` SET `visible`= 0 WHERE idPlanta='$id_oculto'");
+
+                                        //$agregar_favoritos = Conexion::obtener_conexion()->query("UPDATE `planta` SET `visible`= 1 WHERE idPlanta='$id_favorito'");
+
+                                        /* $query = "UPDATE `planta` SET `visible`= 1 WHERE idPlanta='$id_favorito'";
+                                          $stmt = $pdoConn->prepare($registro_favorito);
+                                          $stmt->execute(array($seleccion_f)); */
+                                    }
+                                    alert("Registros enviados a lista de favoritos");
+                                }
+                            }
+                            ?>
+                        </div>
+>>>>>>> ebf3bf95b7b064e8c7cdd3394a2c623fccc16b63
                     </div>
                 </div>
             </div>
 
+<<<<<<< HEAD
             <!-- ******************************* REGISTROR DE PLANTA ************************************************** -->
+=======
+
+                <script>
+                    function openCity(evt, cityName) {
+                        var i, tabcontent, tablinks;
+                        tabcontent = document.getElementsByClassName("tabcontentC");
+                        for (i = 0; i < tabcontent.length; i++) {
+                            tabcontent[i].style.display = "none";
+                        }
+                        tablinks = document.getElementsByClassName("tablinks");
+                        for (i = 0; i < tablinks.length; i++) {
+                            tablinks[i].className = tablinks[i].className.replace(" active", "");
+                        }
+                        document.getElementById(cityName).style.display = "block";
+                        evt.currentTarget.className += " active";
+                    }
+
+                    // Get the element with id="defaultOpen" and click on it
+                    document.getElementById("defaultOpen").click();
+                </script>
+
+                <!-- ******************************* REGISTRAR DE PLANTA ************************************************** -->
+
+                <!-- Modal REGISTRAR NUEVA PLANTA -->
+                <div class="modal fade" id="modalRegistroPlanta" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="defaultModalLabel">Agregar un nuevo Registro</h4>
+                            </div>
+
+                            <form id="fmr-estadosalud">
+                                <div class="modal-body">
+                                    <div class="col-md-12">
+                                        <h4 style="text-align: center">TAXONOMÍA</h4>
+                                        <hr>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label for="pl-reino">Reino</label>
+                                            <select id="id-reino" name="id-reino" class="form-control">
+                                                <?php
+                                                $sql = "SELECT nombre_reino, idReino FROM reino ORDER BY nombre_reino";
+>>>>>>> ebf3bf95b7b064e8c7cdd3394a2c623fccc16b63
 
             <!-- Modal REGISTRAR NUEVA PLANTA -->
             <div class="modal fade" id="modalRegistroPlanta" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -194,12 +355,32 @@ include_once 'plantillas/head-dashboard.php';
                             <h4 class="modal-title" id="defaultModalLabel">Agregar un nuevo Registro</h4>
                         </div>
 
+<<<<<<< HEAD
                         <form id="fmr-estadosalud">
                             <div class="modal-body">
                                 <div class="col-md-12">
                                     <h4 style="text-align: center">TAXONOMÍA</h4>
                                     <hr>
                                 </div>
+=======
+                                                $consulta = Conexion::obtener_conexion()->query($sql);
+                                                ?>
+                                                <option value="<?php echo $fila['idDivision'] ?>">Indefinido</option>
+                                                <?php
+                                                while ($fila = $consulta->fetch(PDO::FETCH_ASSOC)) {
+                                                    ?>
+                                                    <option><?php echo $fila['nombre_division'] ?></option>
+                                                    <?php
+                                                }
+                                                ?>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="pl-clase">Clase</label>
+                                            <select class="form-control" name="id-clase" id="id-clase">
+                                                <?php
+                                                $sql = "SELECT nombre_clase, idClase FROM clase ORDER BY nombre_clase";
+>>>>>>> ebf3bf95b7b064e8c7cdd3394a2c623fccc16b63
 
                                 <div class="row">
                                     <div class="col-md-3">
@@ -470,12 +651,20 @@ include_once 'plantillas/head-dashboard.php';
                                         </div>
                                     </div>
                                 </div>
+<<<<<<< HEAD
                             </div>
                             <div class="modal-footer">
                                 <button type="reset" class="btn btn-link waves-effect" style="margin-right: 100px">BORRAR</button>
                                 <button type="button" class="btn btn-link waves-effect" id="agregar-registro">AGREGAR</button>
                                 <button type="button" class="btn btn-link waves-effect" data-dismiss="modal" aria-label="Close">CERRAR</button>
                             </div>
+=======
+                                <div class="modal-footer">
+                                    <button type="reset" class="btn btn-link waves-effect" style="margin-right: 100px">BORRAR</button>
+                                    <button type="button" class="btn btn-link waves-effect" id="agregar-registro">AGREGAR</button>
+                                    <button type="button" class="btn btn-link waves-effect" data-dismiss="modal" aria-label="Close">CANCELAR</button>
+                                </div>
+>>>>>>> ebf3bf95b7b064e8c7cdd3394a2c623fccc16b63
 
                         </form>
 
@@ -512,6 +701,7 @@ include_once 'plantillas/head-dashboard.php';
             } else
             {
 
+<<<<<<< HEAD
                 $.ajax({
                     type: "POST",
                     url: "app/insertarDatos.php",
@@ -555,6 +745,49 @@ include_once 'plantillas/head-dashboard.php';
 
                         } else {
                             alertify.error("Error del servidor");
+=======
+        <script>
+            //CREAR NUEVo REGISTRO
+            $('#agregar-registro').click(function ()
+            {
+                id_reino = $('#id-reino').val();
+                id_division = $('#id-division').val();
+                id_clase = $('#id-clase').val();
+                id_orden = $('#id-orden').val();
+                id_familia = $('#id-familia').val();
+                id_genero = $('#id-genero').val();
+                id_epiteto = $('#id-epiteto').val();
+                id_determinado = $('#id-determinado').val();
+                id_color = $('#id-color').val();
+                id_forma = $('#id-forma').val();
+                id_tipo = $('#id-tipo').val();
+                autor = $('#autor').val();
+                fuente = $('#fuente').val();
+                altura = $('#altura').val();
+                revision = $('#revision').val();
+                visible = $('#visible').val();
+
+                if (id_familia=="Indefinido")
+                {
+                    alert('Al menos debe pertenecer a una familia');
+                } else
+                {
+
+                    $.ajax({
+                        type: "POST",
+                        url: "app/insertarDatos.php",
+                        data: {'funcion': 'insertarRegistro', 'reino': id_reino, 'division': id_division, 'clase': id_clase, 'orden': id_orden, 'familia': id_familia,
+                            'genero': id_genero, 'epiteto': id_epiteto, 'determinado': id_determinado, 'color': id_color, 'forma': id_forma, 'tipo': id_tipo, 'autor': autor,
+                            'fuente': fuente, 'altura': altura, 'revision': revision, 'visible': visible},
+                        success: function (r) {
+
+                            if (r == 1) {
+                                alert("Agregado con éxito");
+                            } else {
+                                console.log(r);
+                                alert("Error del servidor");
+                            }
+>>>>>>> ebf3bf95b7b064e8c7cdd3394a2c623fccc16b63
                         }
                     }
                 });
@@ -605,6 +838,7 @@ include_once 'plantillas/head-dashboard.php';
 
             if (checked.length == 0)
             {
+<<<<<<< HEAD
                 alertify.warning('No ha seleccionado ninguna casilla');
             } else
             {
@@ -630,6 +864,65 @@ include_once 'plantillas/head-dashboard.php';
     //include_once './plantillas/modal.inc.php';
     ?>
     <!-- #FINAL# Centro del Contenido-->
+=======
+                nombre_comun = $('#comun').val();
+                if (!nombre_comun)
+                {
+                    alert('Debe agregar un nombre común');
+                } else
+                {
+
+                    $.ajax({
+                        type: "POST",
+                        url: "app/insertarDatos.php",
+                        data: {'funcion': 'insertarNombreComun', 'n_comun': nombre_comun},
+                        success: function (r) {
+
+                            if (r == 1) {
+                                alert("Agregado con éxito");
+                            } else {
+                                alert("Error del servidor");
+                            }
+                        }
+                    });
+                }
+            });
+        </script>
+
+        <script>
+
+            //***** OCULTAR PLANTA
+            /*$('#ocultar').click(function ()
+             {
+             id_seleccion = $('#seleccion').val();
+             if (!id_seleccion)
+             {
+             alert('No se selecciono ningun campo');
+             } else
+             {
+             $.ajax({
+             type: "POST",
+             url: "app/ocultarDatos.php",
+             data: {'funcion': 'ocultarRegistro', 'id_planta': id_seleccion},
+             success: function (r) {
+             
+             if (r == 1) {
+             alert("Enviados correctamente");
+             } else {
+             alert("Error del servidor");
+             }
+             }
+             });
+             }
+             });*/
+
+        </script>
+
+        <?php
+        //include_once './plantillas/modal.inc.php';
+        ?>
+        <!-- #FINAL# Centro del Contenido-->
+>>>>>>> ebf3bf95b7b064e8c7cdd3394a2c623fccc16b63
 
     <?php
     Conexion::cerrar_conexion();
