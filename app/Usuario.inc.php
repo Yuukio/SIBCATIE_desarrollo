@@ -5,7 +5,7 @@ class Usuario {
     private $idusuario;
     private $nombre;
     private $apellido;
-    private $correo;
+    private $email;
     private $nombre_usuario;
     private $password;
     private $fecha_registro;
@@ -14,11 +14,11 @@ class Usuario {
     private $telefono;
     private $seccion;
 
-    public function __construct($idusuario, $nombre, $apellido, $nombre_usuario, $correo, $password, $fecha_registro, $activo, $rol, $seccion, $telefono) {
+    public function __construct($idusuario, $nombre, $apellido, $email, $nombre_usuario, $password, $fecha_registro, $activo, $rol, $seccion, $telefono) {
         $this->idusuario = $idusuario;
         $this->nombre = $nombre;
         $this->apellido = $apellido;
-        $this->correo = $correo;
+        $this->email = $email;
         $this->nombre_usuario = $nombre_usuario;
         $this->password = $password;
         $this->fecha_registro = $fecha_registro;
@@ -40,8 +40,8 @@ class Usuario {
         return $this->apellido;
     }
 
-    public function getCorreo() {
-        return $this->correo;
+    public function getEmail() {
+        return $this->email;
     }
 
     public function getNombre_usuario() {

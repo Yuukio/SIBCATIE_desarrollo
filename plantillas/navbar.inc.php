@@ -1,7 +1,4 @@
 <?php
-include_once 'app/ControlSesion.inc.php';
-include_once 'app/config.inc.php';
-
 Conexion::abrir_conexion();
 $total_usuarios = RepositorioUsuario::obtenerNumeroUsuarios(Conexion::obtener_conexion());
 ?>
@@ -25,7 +22,7 @@ $total_usuarios = RepositorioUsuario::obtenerNumeroUsuarios(Conexion::obtener_co
                     if (true) {
                         ?>
                         <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="<?php echo RUTA_DASHBOARD ?>">Administracion</a>
+                            <a class="nav-link js-scroll-trigger" href="home.php">Administracion</a>
                         </li>
                         <?php
                     }
@@ -50,38 +47,16 @@ $total_usuarios = RepositorioUsuario::obtenerNumeroUsuarios(Conexion::obtener_co
                         <a class="nav-link js-scroll-trigger" href="#contact">Contacto</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger">
+                        <a class="nav-link js-scroll-trigger" href="#">
                             <?php
                             echo $total_usuarios;
                             ?>
                         </a> 
                     </li>
                     <li style="padding-right: 60px"></li>
-
-                    <?php
-                    if (ControlSesion::sesionIniciada()) {
-                        ?>
-                        <li class="nav-item dropdown">
-                            <a class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">
-                                <?php echo '' . $_SESSION['nombre_usuario']; ?>
-                            </a>
-                            <div class="dropdown-menu" style="left: -60px">
-                                <a class="dropdown-item" style="" href="#">Perfil</a>
-                                <a class="dropdown-item" href="#">Listas</a>
-                                <a class="dropdown-item" href="#">Hacer consulta</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="app/cerrarSesion.inc.php">Cerrar sesión</a>
-                            </div>
-                        </li>
-                        <?php
-                    } else {
-                        ?>
-                        <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="<?php echo RUTA_LOGIN ?>">Iniciar sesión</a>
-                        </li>
-                        <?php
-                    }
-                    ?>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="sesion.php">Iniciar sesión</a>
+                    </li>
                 </ul>
             </div>
         </div>
