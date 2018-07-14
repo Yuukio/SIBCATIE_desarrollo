@@ -45,8 +45,18 @@
 
             </div>
             <div class="info-container">
-                <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Luis Solano</div>
-                <div class="email">luis82007@hotmail.com</div>
+                <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <?php
+                    if (isset($_SESSION['nombre']) || isset($_SESSION['apellido'])) {
+                        echo $_SESSION['nombre'] . ' ' . $_SESSION['apellido'];
+                    } else {
+                        echo 'Usuario sin nombre';
+                    }
+                    ?>
+                </div>
+                <div class="email">
+                    <?php echo $_SESSION['email']; ?>
+                </div>
                 <div class="btn-group user-helper-dropdown">
                     <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                     <ul class="dropdown-menu pull-right">
@@ -82,48 +92,38 @@
         }
         ?>
 
+
         <div class="menu">
             <ul class="list">
                 <li class="header">MENÚ DE NAVEGACIÓN</li>
-                <li class= "<?php echo $home ?>" >
-                    <a href="home.php">
-                        <i class="material-icons">home</i>
-                        <span>Home</span>
-                    </a>
-                </li>
 
-                <li class="header">ADMINISTRACIÓN</li>
+                    <li class= "<?php echo $home ?>" >
+                        <a href="home.php">
+                            <i class="material-icons">home</i>
+                            <span>Home</span>
+                        </a>
+                    </li>
 
-                <li class= "<?php echo $registros ?>" >
-                    <a href="registros.php">
-                        <i class="material-icons">view_list</i>
-                        <span>Registro de Especies</span>
-                    </a>
-                </li>
-                <li class= "<?php echo $usuarios ?>" >
-                    <a href="usuarios.php">
-                        <i class="material-icons">people</i>
-                        <span>Usuarios registrados</span>
-                    </a>
-                </li>
-                <li class= "<?php echo $catalogos ?>" >
-                    <a href="catalogos.php">
-                        <i class="material-icons">view_module</i>
-                        <span>Catálogos taxonómicos</span>
-                    </a>
-                </li>
-                <!--<li class= "<?php echo $bandeja ?>" >
-                    <a href="bandeja.php">
-                        <i class="material-icons">inbox</i>
-                        <span>Bandeja de Entrada</span>
-                    </a>
-                </li>
-                <li class= "<?php echo $mapa ?>" >
-                    <a href="mapa.php">
-                        <i class="material-icons">map</i>
-                        <span>Mapa del CATIE</span>
-                    </a>
-                </li>-->
+                    <li class="header">ADMINISTRACIÓN</li>
+
+                    <li class= "<?php echo $registros ?>" >
+                        <a href="registros.php">
+                            <i class="material-icons">view_list</i>
+                            <span>Registro de Especies</span>
+                        </a>
+                    </li>
+                    <li class= "<?php echo $usuarios ?>" >
+                        <a href="usuarios.php">
+                            <i class="material-icons">people</i>
+                            <span>Usuarios registrados</span>
+                        </a>
+                    </li>
+                    <li class= "<?php echo $catalogos ?>" >
+                        <a href="catalogos.php">
+                            <i class="material-icons">view_module</i>
+                            <span>Catálogos taxonómicos</span>
+                        </a>
+                    </li>
 
                 <li class="header">CONFIGURACIONES</li>
                 <li>

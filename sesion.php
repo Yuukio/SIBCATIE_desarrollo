@@ -23,7 +23,8 @@ if (isset($_POST['login'])) {
     if ($validador_s->obtenerError() === '' && !is_null($validador_s->obtenerUsuario())) {
         //iniciar sesion
         ControlSesion::iniciarSesion($validador_s->obtenerUsuario()->getIdusuario(), $validador_s->obtenerUsuario()->getNombre_usuario(), 
-                $validador_s->obtenerUsuario()->getRol(), $validador_s->obtenerUsuario()->getSeccion());
+                $validador_s->obtenerUsuario()->getRol(), $validador_s->obtenerUsuario()->getSeccion(), $validador_s->obtenerUsuario()->getCorreo(),
+                $validador_s->obtenerUsuario()->getNombre(), $validador_s->obtenerUsuario()->getApellido());
         Redireccion::redirigir(SERVIDOR);
         //redirigir a index
         //echo 'Bien';

@@ -17,7 +17,6 @@ include_once 'plantillas/head-dashboard.php';
     <?php
     $home = "active";
 
-
     include_once 'plantillas/cargar-pantalla.php';
     include_once 'plantillas/barra-superior.php';
     include_once 'plantillas/menu-lateral.php';
