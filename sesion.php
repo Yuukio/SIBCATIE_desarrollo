@@ -1,6 +1,62 @@
 <?php
 include_once 'app/Conexion.inc.php';
 include_once 'app/RepositorioUsuario.inc.php';
+<<<<<<< HEAD
+=======
+include_once 'app/validadorRegistroPublico.inc.php';
+include_once 'app/validadorSesionPublico.inc.php';
+include_once 'app/Redireccion.inc.php';
+include_once 'app/ControlSesion.inc.php';
+
+//VALIDAR INICIO DE SESION
+if(ControlSesion::sesionIniciada()){
+    //echo 'listo';
+    Redireccion::redirigir(SERVIDOR);
+}
+
+if (isset($_POST['login'])) {
+
+    Conexion::abrir_conexion();
+
+    $validador_s = new ValidarLogin($_POST['nombre_usuario'], $_POST['password'], Conexion::obtener_conexion());
+
+    if ($validador_s->obtenerError() === '' && !is_null($validador_s->obtenerUsuario())) {
+        //iniciar sesion
+        ControlSesion::iniciarSesion($validador_s->obtenerUsuario()->getIdusuario(), $validador_s->obtenerUsuario()->getNombre_usuario(), 
+                $validador_s->obtenerUsuario()->getRol(), $validador_s->obtenerUsuario()->getSeccion());
+        Redireccion::redirigir(SERVIDOR);
+        //redirigir a index
+        //echo 'Bien';
+    }
+
+    Conexion::cerrar_conexion();
+}
+
+//VALIDAR REGISTRO DE USUARIO
+if (isset($_POST['enviar'])) {
+
+    Conexion::abrir_conexion();
+
+    $validador = new ValidadorRegistro($_POST['email'], $_POST['usuario'], $_POST['pass1'], $_POST['pass2'], Conexion::obtener_conexion());
+
+    if ($validador->registroValido()) {
+
+        $nombre_usuario = $validador->getUsuario();
+        $correo = $validador->getEmail();
+        $password = password_hash($validador->getPass(), PASSWORD_DEFAULT);
+
+        $usuario = new Usuario('', '', '', $nombre_usuario, $correo, $password, '', '', '', '', '');
+        $usuario_insertado = RepositorioUsuario::agregarUsuario(Conexion::obtener_conexion(), $usuario);
+
+        if ($usuario_insertado) {
+            $nombre = $usuario->getNombre_usuario();
+            Redireccion::redirigir(RUTA_REGISTRO_CORRECTO . '?usuario=' . $nombre);
+        }
+    }
+
+    Conexion::cerrar_conexion();
+}
+>>>>>>> parent of bdf6985... Revert "12"
 
 $titulo = 'SIBCATIE';
 
