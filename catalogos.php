@@ -166,7 +166,7 @@
                                                                     </a>
                                                                     <i>&nbsp;</i>
                                                                     <a href="#" style="color: #A1D490">
-                                                                        <i class="material-icons" data-toggle="modal" data-target="#modalDivision-v" onclick="filtrarDivision('<?php echo $id_division ?>')">description</i>
+                                                                        <i class="material-icons" data-toggle="modal" data-target="#modalDivision-v" onclick="agregarFormDivision('<?php echo $datos_division ?>')">description</i>
                                                                     </a>
                                                                 </td>
                                                             </tr>
@@ -221,10 +221,10 @@
 
                                                             $id_clase = $fila_clase['idClase'];
 
-                                                            $id_clase_nuevo = str_pad($id_clase, 3, "0", STR_PAD_LEFT);
+                                                            $id_clase = str_pad($id_clase, 3, "0", STR_PAD_LEFT);
                                                             ?>
                                                             <tr valign="top">
-                                                                <td><?php echo $id_clase_nuevo ?></td>
+                                                                <td><?php echo $id_clase ?></td>
                                                                 <td><?php echo $fila_clase['nombre_clase'] ?></td>
                                                                 <td style="text-align:center;">
                                                                     <a href="#" style="color: #5DADE2">
@@ -232,7 +232,7 @@
                                                                     </a>
                                                                     <i>&nbsp;</i>
                                                                     <a href="#" style="color: #A1D490">
-                                                                        <i class="material-icons" data-toggle="modal" data-target="#modalClase-v" onclick="filtrarClase('<?php echo $id_clase ?>')">description</i>
+                                                                        <i class="material-icons" data-toggle="modal" data-target="#modalClase-v" onclick="agregarFormClase('<?php echo $datos_clase ?>')">description</i>
                                                                     </a>
                                                                 </td>
                                                             </tr>
@@ -298,7 +298,7 @@
                                                                     </a>
                                                                     <i>&nbsp;</i>
                                                                     <a href="#" style="color: #A1D490">
-                                                                        <i class="material-icons" data-toggle="modal" data-target="#modalOrden-v" onclick="filtrarOrden('<?php echo $id_orden ?>')">description</i>
+                                                                        <i class="material-icons" data-toggle="modal" data-target="#modalOrden-v" onclick="agregarFormOrden('<?php echo $datos_orden ?>')">description</i>
                                                                     </a>
                                                                 </td>
                                                             </tr>
@@ -364,7 +364,7 @@
                                                                     </a>
                                                                     <i>&nbsp;</i>
                                                                     <a href="#" style="color: #A1D490">
-                                                                        <i class="material-icons" data-toggle="modal" data-target="#modalFamilia-v" onclick="filtrarFamilia('<?php echo $id_familia ?>')">description</i>
+                                                                        <i class="material-icons" data-toggle="modal" data-target="#modalFamilia-v" onclick="agregarFormFamilia('<?php echo $datos_familia ?>')">description</i>
                                                                     </a>
                                                                 </td>
                                                             </tr>
@@ -430,7 +430,7 @@
                                                                     </a>
                                                                     <i>&nbsp;</i>
                                                                     <a href="#" style="color: #A1D490">
-                                                                        <i class="material-icons" data-toggle="modal" data-target="#modalGenero-v" onclick="filtrarGenero('<?php echo $id_genero ?>')">description</i>
+                                                                        <i class="material-icons" data-toggle="modal" data-target="#modalGenero-v" onclick="agregarFormGenero('<?php echo $datos_genero ?>')">description</i>
                                                                     </a>
                                                                 </td>
                                                             </tr>
@@ -496,7 +496,7 @@
                                                                     </a>
                                                                     <i>&nbsp;</i>
                                                                     <a href="#" style="color: #A1D490">
-                                                                        <i class="material-icons" data-toggle="modal" data-target="#modalEpiteto-v" onclick="filtrarEpiteto('<?php echo $id_epiteto ?>')">description</i>
+                                                                        <i class="material-icons" data-toggle="modal" data-target="#modalEpiteto-v" onclick="agregarFormEpiteto('<?php echo $datos_epiteto ?>')">description</i>
                                                                     </a>
                                                                 </td>
                                                             </tr>
@@ -563,7 +563,7 @@
                                                                     </a>
                                                                     <i>&nbsp;</i>
                                                                     <a href="#" style="color: #A1D490">
-                                                                        <i class="material-icons" data-toggle="modal" data-target="#modalColor-v" onclick="filtrarColor('<?php echo $id_color ?>')">description</i>
+                                                                        <i class="material-icons" data-toggle="modal" data-target="#modalColor-v" onclick="agregarFormColor('<?php echo $datos_color ?>')">description</i>
                                                                     </a>
                                                                 </td>
                                                             </tr>
@@ -590,7 +590,7 @@
                                                         <i class="material-icons">more_vert</i>
                                                     </a>
                                                     <ul class="dropdown-menu pull-right">
-                                                        <li><a data-toggle="modal" data-target="#modalDeterminadaPor">Agregar nuevo Determinador</a></li>
+                                                        <li><a data-toggle="modal" data-target="#modalDeterminado">Agregar nuevo Determinador</a></li>
                                                     </ul>
                                                 </li>
                                             </ul>
@@ -629,7 +629,7 @@
                                                                     </a>
                                                                     <i>&nbsp;</i>
                                                                     <a href="#" style="color: #A1D490">
-                                                                        <i class="material-icons" data-toggle="modal" data-target="#modalDeterminadaPor-v" onclick="filtrarDeterminadaPor('<?php echo $id_determinado ?>')">description</i>
+                                                                        <i class="material-icons" data-toggle="modal" data-target="#modalDeterminado-v" onclick="agregarFormDeterminado('<?php echo $datos_determinado ?>')">description</i>
                                                                     </a>
                                                                 </td>
                                                             </tr>
@@ -695,7 +695,7 @@
                                                                     </a>
                                                                     <i>&nbsp;</i>
                                                                     <a href="#" style="color: #A1D490">
-                                                                        <i class="material-icons" data-toggle="modal" data-target="#modalForma-v" onclick="filtrarForma('<?php echo $id_forma ?>')">description</i>
+                                                                        <i class="material-icons" data-toggle="modal" data-target="#modalForma-v" onclick="agregarFormForma('<?php echo $datos_forma ?>')">description</i>
                                                                     </a>
                                                                 </td>
                                                             </tr>
@@ -761,7 +761,7 @@
                                                                     </a>
                                                                     <i>&nbsp;</i>
                                                                     <a href="#" style="color: #A1D490">
-                                                                        <i class="material-icons" data-toggle="modal" data-target="#modalTipoHoja-v" onclick="filtrarTipoHoja('<?php echo $id_tipo ?>')">description</i>
+                                                                        <i class="material-icons" data-toggle="modal" data-target="#modalTipoHoja-v" onclick="agregarFormTipoHoja('<?php echo $datos_tipo ?>')">description</i>
                                                                     </a>
                                                                 </td>
                                                             </tr>
@@ -825,6 +825,10 @@
                                                                     <a href="#" style="color: #5DADE2">
                                                                         <i class="material-icons" data-toggle="modal" data-target="#modalUso-e" onclick="agregarFormUso('<?php echo $datos_uso ?>')">edit</i>
                                                                     </a>
+                                                                    <i>&nbsp;</i>
+                                                                    <a href="#" style="color: #A1D490">
+                                                                        <i class="material-icons" data-toggle="modal" data-target="#modalUso-v" onclick="agregarFormUso('<?php echo $datos_uso ?>')">description</i>
+                                                                    </a>
                                                                 </td>
                                                             </tr>
                                                             <?php
@@ -887,6 +891,10 @@
                                                                     <a href="#" style="color: #5DADE2">
                                                                         <i class="material-icons" data-toggle="modal" data-target="#modalEstadoSalud-e" onclick="agregarFormEstadoSalud('<?php echo $datos_estado ?>')">edit</i>
                                                                     </a>
+                                                                    <i>&nbsp;</i>
+                                                                    <a href="#" style="color: #A1D490">
+                                                                        <i class="material-icons" data-toggle="modal" data-target="#modalEstadoSalud-v" onclick="agregarFormEstadoSalud('<?php echo $datos_estado ?>')">description</i>
+                                                                    </a>
                                                                 </td>
                                                             </tr>
                                                             <?php
@@ -939,7 +947,7 @@
                                     <input type="text" class="form-control" name="nombre-reino" id="nombre-reino" >
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-link waves-effect" id="guardar-reino">AGREGAR</button>
+                                    <button type="button" class="btn btn-link waves-effect" data-dismiss="modal" id="guardar-reino">AGREGAR</button>
                                     <button type="button" class="btn btn-link waves-effect" data-dismiss="modal" aria-label="Close">CANCELAR</button>
                                 </div>
                             </form>
@@ -963,7 +971,7 @@
                                     <input type="text" class="form-control" name="nombre-division" id="nombre-division" >
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-link waves-effect" id="guardar-division">AGREGAR</button>
+                                    <button type="button" class="btn btn-link waves-effect" data-dismiss="modal" id="guardar-division">AGREGAR</button>
                                     <button type="button" class="btn btn-link waves-effect" data-dismiss="modal" aria-label="Close">CANCELAR</button>
                                 </div>
                             </form>
@@ -987,7 +995,7 @@
                                     <input type="text" class="form-control" name="nombre-clase" id="nombre-clase" >
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-link waves-effect" id="guardar-clase">AGREGAR</button>
+                                    <button type="button" class="btn btn-link waves-effect" data-dismiss="modal" id="guardar-clase">AGREGAR</button>
                                     <button type="button" class="btn btn-link waves-effect" data-dismiss="modal" aria-label="Close">CANCELAR</button>
                                 </div>
                             </form>
@@ -1011,7 +1019,7 @@
                                     <input type="text" class="form-control" name="nombre-orden" id="nombre-orden" >
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-link waves-effect" id="guardar-orden">AGREGAR</button>
+                                    <button type="button" class="btn btn-link waves-effect" data-dismiss="modal" id="guardar-orden">AGREGAR</button>
                                     <button type="button" class="btn btn-link waves-effect" data-dismiss="modal" aria-label="Close">CANCELAR</button>
                                 </div>
                             </form>
@@ -1035,7 +1043,7 @@
                                     <input type="text" class="form-control" name="nombre-familia" id="nombre-familia" >
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-link waves-effect" id="guardar-familia">AGREGAR</button>
+                                    <button type="button" class="btn btn-link waves-effect" data-dismiss="modal" id="guardar-familia">AGREGAR</button>
                                     <button type="button" class="btn btn-link waves-effect" data-dismiss="modal" aria-label="Close">CANCELAR</button>
                                 </div>
                             </form>
@@ -1059,7 +1067,7 @@
                                     <input type="text" class="form-control" name="nombre-genero" id="nombre-genero" >
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-link waves-effect" id="guardar-genero">AGREGAR</button>
+                                    <button type="button" class="btn btn-link waves-effect" data-dismiss="modal" id="guardar-genero">AGREGAR</button>
                                     <button type="button" class="btn btn-link waves-effect" data-dismiss="modal" aria-label="Close">CANCELAR</button>
                                 </div>
                             </form>
@@ -1083,7 +1091,7 @@
                                     <input type="text" class="form-control" name="nombre-epiteto" id="nombre-epiteto" >
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-link waves-effect" id="guardar-epiteto">AGREGAR</button>
+                                    <button type="button" class="btn btn-link waves-effect" data-dismiss="modal" id="guardar-epiteto">AGREGAR</button>
                                     <button type="button" class="btn btn-link waves-effect" data-dismiss="modal" aria-label="Close">CANCELAR</button>
                                 </div>
                             </form>
@@ -1107,7 +1115,7 @@
                                     <input type="text" class="form-control" name="nombre-color" id="nombre-color" >
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-link waves-effect" id="guardar-color">AGREGAR</button>
+                                    <button type="button" class="btn btn-link waves-effect" data-dismiss="modal" id="guardar-color">AGREGAR</button>
                                     <button type="button" class="btn btn-link waves-effect" data-dismiss="modal" aria-label="Close">CANCELAR</button>
                                 </div>
                             </form>
@@ -1131,7 +1139,7 @@
                                     <input type="text" class="form-control" name="nombre-determinado" id="nombre-determinado" >
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-link waves-effect" id="guardar-determinado">AGREGAR</button>
+                                    <button type="button" class="btn btn-link waves-effect" data-dismiss="modal" id="guardar-determinado">AGREGAR</button>
                                     <button type="button" class="btn btn-link waves-effect" data-dismiss="modal" aria-label="Close">CANCELAR</button>
                                 </div>
                             </form>
@@ -1155,7 +1163,7 @@
                                     <input type="text" class="form-control" name="nombre-forma" id="nombre-forma" >
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-link waves-effect" id="guardar-forma">AGREGAR</button>
+                                    <button type="button" class="btn btn-link waves-effect" data-dismiss="modal" id="guardar-forma">AGREGAR</button>
                                     <button type="button" class="btn btn-link waves-effect" data-dismiss="modal" aria-label="Close">CANCELAR</button>
                                 </div>
                             </form>
@@ -1179,7 +1187,7 @@
                                     <input type="text" class="form-control" name="nombre-tipohoja" id="nombre-tipohoja" >
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-link waves-effect" id="guardar-tipohoja">AGREGAR</button>
+                                    <button type="button" class="btn btn-link waves-effect" data-dismiss="modal" id="guardar-tipohoja">AGREGAR</button>
                                     <button type="button" class="btn btn-link waves-effect" data-dismiss="modal" aria-label="Close">CANCELAR</button>
                                 </div>
                             </form>
@@ -1203,7 +1211,7 @@
                                     <input type="text" class="form-control" name="nombre-uso" id="nombre-uso" >
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-link waves-effect" id="guardar-uso">AGREGAR</button>
+                                    <button type="button" class="btn btn-link waves-effect" data-dismiss="modal" id="guardar-uso">AGREGAR</button>
                                     <button type="button" class="btn btn-link waves-effect" data-dismiss="modal" aria-label="Close">CANCELAR</button>
                                 </div>
                             </form>
@@ -1227,7 +1235,7 @@
                                     <input type="text" class="form-control" name="nombre-estadosalud" id="nombre-estadosalud" >
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-link waves-effect" id="guardar-estadosalud">AGREGAR</button>
+                                    <button type="button" class="btn btn-link waves-effect" data-dismiss="modal" id="guardar-estadosalud">AGREGAR</button>
                                     <button type="button" class="btn btn-link waves-effect" data-dismiss="modal" aria-label="Close">CANCELAR</button>
                                 </div>
                             </form>
@@ -1577,339 +1585,65 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- ******* MODAL EDITAR ESTADO DE SALUD -->
+                <div class="modal fade" id="modalEstadoSalud-e" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document" style="width: 600px; margin: 30px auto">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="defaultModalLabel">Editar Estado de Salud</h4>
+                            </div>
+
+                            <form id="fmr-estadosalud-e">
+                                <div class="modal-body">
+                                    <input type="text" Style = "display:none" class="form-control" name="id-estado" id="id-estado" >
+                                    <label for="nombre-estadosalud-e">Nombre del Estado de Salud</label>
+                                    <input type="text" class="form-control" name="nombre-estadosalud-e" id="nombre-estadosalud-e" >
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-link waves-effect" data-dismiss="modal" id="actualizar-estado">ACTUALIZAR</button>
+                                    <button type="button" class="btn btn-link waves-effect" data-dismiss="modal" aria-label="Close">CANCELAR</button>
+                                </div>
+                            </form>
+                            <div id="mensaje-estadosalud-e"></div>
+
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div>
-                <!-------------------FILTRAR REINO-->
-                <div class="modal fade" id="modalReino-v" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="card">
-                                <div class="header bg-green">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" 
-                                            style="font-size: 40px; line-height: 0.5; color: #fff; opacity: 1"><span aria-hidden="true">&times;</span></button>
-                                    <h2>FILTRO SOBRE REINO</h2>
-                                </div>
-                                <div class="body">
-                                    <table class="table table-bordered table-striped table-hover js-basic-example dataTable" id="tablaReino">
-                                        <thead>
-                                            <tr style="background-color: white">
-                                                <th>ID</th>
-                                                <th>Familia</th>
-                                                <th>Género</th>
-                                                <th>Epíteto</th>
-                                                <th>Ingreso</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-
-                                        </tbody>
-                                    </table>
-                                </div>
+                <!--MODAL REGISTRO DE ACTIVIDAD-->
+            <div class="modal fade" id="modalReino-v" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="card">
+                            <div class="header bg-green">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close" 
+                                        style="font-size: 40px; line-height: 0.5; color: #fff; opacity: 1"><span aria-hidden="true">&times;</span></button>
+                                <h2>REGISTRO DE ACTIVIDAD</h2>
+                            </div>
+                            <div class="body">
+                                <table class="table table-bordered table-striped table-hover js-basic-example dataTable" id="tablaReinos">
+                                    <thead>
+                                        <tr style="background-color: white">
+                                            <th>Fecha</th>
+                                            <th>Usuario</th>
+                                            <th>Registro</th>
+                                            <th>Actividad</th>
+                                            <th>Revisión</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+       
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-------------------FILTRAR DIVISION-->
-                <div class="modal fade" id="modalDivision-v" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="card">
-                                <div class="header bg-green">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" 
-                                            style="font-size: 40px; line-height: 0.5; color: #fff; opacity: 1"><span aria-hidden="true">&times;</span></button>
-                                    <h2>FILTRO SOBRE DIVISIÓN</h2>
-                                </div>
-                                <div class="body">
-                                    <table class="table table-bordered table-striped table-hover js-basic-example dataTable" id="tablaDivision">
-                                        <thead>
-                                            <tr style="background-color: white">
-                                                <th>ID</th>
-                                                <th>Familia</th>
-                                                <th>Género</th>
-                                                <th>Epíteto</th>
-                                                <th>Ingreso</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-------------------FILTRAR CLASE-->
-                <div class="modal fade" id="modalClase-v" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="card">
-                                <div class="header bg-green">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" 
-                                            style="font-size: 40px; line-height: 0.5; color: #fff; opacity: 1"><span aria-hidden="true">&times;</span></button>
-                                    <h2>FILTRO SOBRE CLASE</h2>
-                                </div>
-                                <div class="body">
-                                    <table class="table table-bordered table-striped table-hover js-basic-example dataTable" id="tablaClase">
-                                        <thead>
-                                            <tr style="background-color: white">
-                                                <th>ID</th>
-                                                <th>Familia</th>
-                                                <th>Género</th>
-                                                <th>Epíteto</th>
-                                                <th>Ingreso</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-------------------FILTRAR ORDEN-->
-                <div class="modal fade" id="modalOrden-v" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="card">
-                                <div class="header bg-green">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" 
-                                            style="font-size: 40px; line-height: 0.5; color: #fff; opacity: 1"><span aria-hidden="true">&times;</span></button>
-                                    <h2>FILTRO SOBRE ORDEN</h2>
-                                </div>
-                                <div class="body">
-                                    <table class="table table-bordered table-striped table-hover js-basic-example dataTable" id="tablaOrden">
-                                        <thead>
-                                            <tr style="background-color: white">
-                                                <th>ID</th>
-                                                <th>Familia</th>
-                                                <th>Género</th>
-                                                <th>Epíteto</th>
-                                                <th>Ingreso</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-------------------FILTRAR FAMILIA-->
-                <div class="modal fade" id="modalFamilia-v" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="card">
-                                <div class="header bg-green">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" 
-                                            style="font-size: 40px; line-height: 0.5; color: #fff; opacity: 1"><span aria-hidden="true">&times;</span></button>
-                                    <h2>FILTRO SOBRE FAMILIA</h2>
-                                </div>
-                                <div class="body">
-                                    <table class="table table-bordered table-striped table-hover js-basic-example dataTable" id="tablaFamilia">
-                                        <thead>
-                                            <tr style="background-color: white">
-                                                <th>ID</th>
-                                                <th>Familia</th>
-                                                <th>Género</th>
-                                                <th>Epíteto</th>
-                                                <th>Ingreso</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-------------------FILTRAR GENERO-->
-                <div class="modal fade" id="modalGenero-v" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="card">
-                                <div class="header bg-green">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" 
-                                            style="font-size: 40px; line-height: 0.5; color: #fff; opacity: 1"><span aria-hidden="true">&times;</span></button>
-                                    <h2>FILTRO SOBRE GÉNERO</h2>
-                                </div>
-                                <div class="body">
-                                    <table class="table table-bordered table-striped table-hover js-basic-example dataTable" id="tablaGenero">
-                                        <thead>
-                                            <tr style="background-color: white">
-                                                <th>ID</th>
-                                                <th>Familia</th>
-                                                <th>Género</th>
-                                                <th>Epíteto</th>
-                                                <th>Ingreso</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-------------------FILTRAR EPITETO-->
-                <div class="modal fade" id="modalEpiteto-v" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="card">
-                                <div class="header bg-green">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" 
-                                            style="font-size: 40px; line-height: 0.5; color: #fff; opacity: 1"><span aria-hidden="true">&times;</span></button>
-                                    <h2>FILTRO SOBRE EPÍTETO</h2>
-                                </div>
-                                <div class="body">
-                                    <table class="table table-bordered table-striped table-hover js-basic-example dataTable" id="tablaEpiteto">
-                                        <thead>
-                                            <tr style="background-color: white">
-                                                <th>ID</th>
-                                                <th>Familia</th>
-                                                <th>Género</th>
-                                                <th>Epíteto</th>
-                                                <th>Ingreso</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-------------------FILTRAR COLOR-->
-                <div class="modal fade" id="modalColor-v" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="card">
-                                <div class="header bg-green">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" 
-                                            style="font-size: 40px; line-height: 0.5; color: #fff; opacity: 1"><span aria-hidden="true">&times;</span></button>
-                                    <h2>FILTRO SOBRE COLOR</h2>
-                                </div>
-                                <div class="body">
-                                    <table class="table table-bordered table-striped table-hover js-basic-example dataTable" id="tablaColor">
-                                        <thead>
-                                            <tr style="background-color: white">
-                                                <th>ID</th>
-                                                <th>Familia</th>
-                                                <th>Género</th>
-                                                <th>Epíteto</th>
-                                                <th>Ingreso</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-------------------FILTRAR DETERMINACION-->
-                <div class="modal fade" id="modalDeterminadaPor-v" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="card">
-                                <div class="header bg-green">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" 
-                                            style="font-size: 40px; line-height: 0.5; color: #fff; opacity: 1"><span aria-hidden="true">&times;</span></button>
-                                    <h2>FILTRO SOBRE DETERMINACIÓN</h2>
-                                </div>
-                                <div class="body">
-                                    <table class="table table-bordered table-striped table-hover js-basic-example dataTable" id="tablaDeterminadaPor">
-                                        <thead>
-                                            <tr style="background-color: white">
-                                                <th>ID</th>
-                                                <th>Familia</th>
-                                                <th>Género</th>
-                                                <th>Epíteto</th>
-                                                <th>Ingreso</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-------------------FILTRAR FORMAS-->
-                <div class="modal fade" id="modalForma-v" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="card">
-                                <div class="header bg-green">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" 
-                                            style="font-size: 40px; line-height: 0.5; color: #fff; opacity: 1"><span aria-hidden="true">&times;</span></button>
-                                    <h2>FILTRO SOBRE FORMA</h2>
-                                </div>
-                                <div class="body">
-                                    <table class="table table-bordered table-striped table-hover js-basic-example dataTable" id="tablaForma">
-                                        <thead>
-                                            <tr style="background-color: white">
-                                                <th>ID</th>
-                                                <th>Familia</th>
-                                                <th>Género</th>
-                                                <th>Epíteto</th>
-                                                <th>Ingreso</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-------------------FILTRAR TIPO DE HOJA-->
-                <div class="modal fade" id="modalTipoHoja-v" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="card">
-                                <div class="header bg-green">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" 
-                                            style="font-size: 40px; line-height: 0.5; color: #fff; opacity: 1"><span aria-hidden="true">&times;</span></button>
-                                    <h2>FILTRO SOBRE TIPO DE HOJA</h2>
-                                </div>
-                                <div class="body">
-                                    <table class="table table-bordered table-striped table-hover js-basic-example dataTable" id="tablaTipoHoja">
-                                        <thead>
-                                            <tr style="background-color: white">
-                                                <th>ID</th>
-                                                <th>Familia</th>
-                                                <th>Género</th>
-                                                <th>Epíteto</th>
-                                                <th>Ingreso</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            </div>
             </div>
 
         </section>
@@ -1923,7 +1657,7 @@
                 nombre_reino = $('#nombre-reino').val();
                 if (!nombre_reino)
                 {
-                    alertify.warning('Debe completar todos los campos');
+                    alert('Debe completar todos los campos');
                 } else
                 {
                     $.ajax({
@@ -1933,9 +1667,9 @@
                         success: function (r) {
 
                             if (r == 1) {
-                                alertify.success("Agregado con éxito");
+                                alert("Agregado con éxito");
                             } else {
-                                alertify.error("Error del servidor");
+                                alert("Error del servidor");
                             }
                         }
                     });
@@ -1950,7 +1684,7 @@
                 nombre_division = $('#nombre-division').val();
                 if (!nombre_division)
                 {
-                    alertify.warning('Debe completar todos los campos');
+                    alert('Debe completar todos los campos');
                 } else
                 {
                     $.ajax({
@@ -1960,9 +1694,9 @@
                         success: function (r) {
 
                             if (r == 1) {
-                                alertify.success("Agregado con éxito");
+                                alert("Agregado con éxito");
                             } else {
-                                alertify.error("Error del servidor");
+                                alert("Error del servidor");
                             }
                         }
                     });
@@ -1977,7 +1711,7 @@
                 nombre_clase = $('#nombre-clase').val();
                 if (!nombre_clase)
                 {
-                    alertify.warning('Debe completar todos los campos');
+                    alert('Debe completar todos los campos');
                 } else
                 {
 
@@ -1988,9 +1722,9 @@
                         success: function (r) {
 
                             if (r == 1) {
-                                alertify.success("Agregado con éxito");
+                                alert("Agregado con éxito");
                             } else {
-                                alertify.error("Error del servidor");
+                                alert("Error del servidor");
                             }
                         }
                     });
@@ -2003,7 +1737,7 @@
                 nombre_orden = $('#nombre-orden').val();
                 if (!nombre_orden)
                 {
-                    alertify.warning('Debe completar todos los campos');
+                    alert('Debe completar todos los campos');
                 } else
                 {
 
@@ -2014,9 +1748,9 @@
                         success: function (r) {
 
                             if (r == 1) {
-                                alertify.success("Agregado con éxito");
+                                alert("Agregado con éxito");
                             } else {
-                                alertify.error("Error del servidor");
+                                alert("Error del servidor");
                             }
                         }
                     });
@@ -2029,7 +1763,7 @@
                 nombre_familia = $('#nombre-familia').val();
                 if (!nombre_familia)
                 {
-                    alertify.warning('Debe completar todos los campos');
+                    alert('Debe completar todos los campos');
                 } else
                 {
 
@@ -2040,9 +1774,9 @@
                         success: function (r) {
 
                             if (r == 1) {
-                                alertify.success("Agregado con éxito");
+                                alert("Agregado con éxito");
                             } else {
-                                alertify.error("Error del servidor");
+                                alert("Error del servidor");
                             }
                         }
                     });
@@ -2055,7 +1789,7 @@
                 nombre_genero = $('#nombre-genero').val();
                 if (!nombre_genero)
                 {
-                    alertify.warning('Debe completar todos los campos');
+                    alert('Debe completar todos los campos');
                 } else
                 {
 
@@ -2066,9 +1800,9 @@
                         success: function (r) {
 
                             if (r == 1) {
-                                alertify.success("Agregado con éxito");
+                                alert("Agregado con éxito");
                             } else {
-                                alertify.error("Error del servidor");
+                                alert("Error del servidor");
                             }
                         }
                     });
@@ -2081,7 +1815,7 @@
                 nombre_epiteto = $('#nombre-epiteto').val();
                 if (!nombre_epiteto)
                 {
-                    alertify.warning('Debe completar todos los campos');
+                    alert('Debe completar todos los campos');
                 } else
                 {
 
@@ -2092,9 +1826,9 @@
                         success: function (r) {
 
                             if (r == 1) {
-                                alertify.success("Agregado con éxito");
+                                alert("Agregado con éxito");
                             } else {
-                                alertify.error("Error del servidor");
+                                alert("Error del servidor");
                             }
                         }
                     });
@@ -2107,7 +1841,7 @@
                 nombre_color = $('#nombre-color').val();
                 if (!nombre_color)
                 {
-                    alertify.warning('Debe completar todos los campos');
+                    alert('Debe completar todos los campos');
                 } else
                 {
 
@@ -2118,9 +1852,9 @@
                         success: function (r) {
 
                             if (r == 1) {
-                                alertify.success("Agregado con éxito");
+                                alert("Agregado con éxito");
                             } else {
-                                alertify.error("Error del servidor");
+                                alert("Error del servidor");
                             }
                         }
                     });
@@ -2133,7 +1867,7 @@
                 nombre_determinado = $('#nombre-determinado').val();
                 if (!nombre_determinado)
                 {
-                    alertify.warning('Debe completar todos los campos');
+                    alert('Debe completar todos los campos');
                 } else
                 {
 
@@ -2144,9 +1878,9 @@
                         success: function (r) {
 
                             if (r == 1) {
-                                alertify.success("Agregado con éxito");
+                                alert("Agregado con éxito");
                             } else {
-                                alertify.error("Error del servidor");
+                                alert("Error del servidor");
                             }
                         }
                     });
@@ -2159,7 +1893,7 @@
                 nombre_forma = $('#nombre-forma').val();
                 if (!nombre_forma)
                 {
-                    alertify.warning('Debe completar todos los campos');
+                    alert('Debe completar todos los campos');
                 } else
                 {
 
@@ -2170,9 +1904,9 @@
                         success: function (r) {
 
                             if (r == 1) {
-                                alertify.success("Agregado con éxito");
+                                alert("Agregado con éxito");
                             } else {
-                                alertify.error("Error del servidor");
+                                alert("Error del servidor");
                             }
                         }
                     });
@@ -2185,7 +1919,7 @@
                 nombre_tipohoja = $('#nombre-tipohoja').val();
                 if (!nombre_tipohoja)
                 {
-                    alertify.warning('Debe completar todos los campos');
+                    alert('Debe completar todos los campos');
                 } else
                 {
 
@@ -2196,9 +1930,9 @@
                         success: function (r) {
 
                             if (r == 1) {
-                                alertify.success("Agregado con éxito");
+                                alert("Agregado con éxito");
                             } else {
-                                alertify.error("Error del servidor");
+                                alert("Error del servidor");
                             }
                         }
                     });
@@ -2211,7 +1945,7 @@
                 nombre_uso = $('#nombre-uso').val();
                 if (!nombre_uso)
                 {
-                    alertify.warning('Debe completar todos los campos');
+                    alert('Debe completar todos los campos');
                 } else
                 {
 
@@ -2222,9 +1956,9 @@
                         success: function (r) {
 
                             if (r == 1) {
-                                alertify.success("Agregado con éxito");
+                                alert("Agregado con éxito");
                             } else {
-                                alertify.error("Error del servidor");
+                                alert("Error del servidor");
                             }
                         }
                     });
@@ -2237,7 +1971,7 @@
                 nombre_estadosalud = $('#nombre-estadosalud').val();
                 if (!nombre_estadosalud)
                 {
-                    alertify.warning('Debe completar todos los campos');
+                    alert('Debe completar todos los campos');
                 } else
                 {
 
@@ -2248,9 +1982,9 @@
                         success: function (r) {
 
                             if (r == 1) {
-                                alertify.success("Agregado con éxito");
+                                alert("Agregado con éxito");
                             } else {
-                                alertify.error("Error del servidor");
+                                alert("Error del servidor");
                             }
                         }
                     });
@@ -2282,7 +2016,7 @@
                 id_reino = $('#id-reino').val();
                 if (!nombre_reino)
                 {
-                    alertify.warning('El campo no puede quedar vacío');
+                    alert('El campo no puede quedar vacío');
                 } else
                 {
                     $.ajax({
@@ -2292,9 +2026,9 @@
                         success: function (r) {
 
                             if (r == 1) {
-                                alertify.success("Se actualizó correctamente");
+                                alert("Se actualizó correctamente");
                             } else {
-                                alertify.error("Error del servidor");
+                                alert("Error del servidor");
                             }
                         }
                     });
@@ -2308,7 +2042,7 @@
                 id_division = $('#id-division').val();
                 if (!nombre_division)
                 {
-                    alertify.warning('El campo no puede quedar vacío');
+                    alert('El campo no puede quedar vacío');
                 } else
                 {
                     $.ajax({
@@ -2318,9 +2052,9 @@
                         success: function (r) {
 
                             if (r == 1) {
-                                alertify.success("Se actualizó correctamente");
+                                alert("Se actualizó correctamente");
                             } else {
-                                alertify.error("Error del servidor");
+                                alert("Error del servidor");
                             }
                         }
                     });
@@ -2334,7 +2068,7 @@
                 id_clase = $('#id-clase').val();
                 if (!nombre_clase)
                 {
-                    alertify.warning('El campo no puede quedar vacío');
+                    alert('El campo no puede quedar vacío');
                 } else
                 {
                     $.ajax({
@@ -2344,9 +2078,9 @@
                         success: function (r) {
 
                             if (r == 1) {
-                                alertify.success("Se actualizó correctamente");
+                                alert("Se actualizó correctamente");
                             } else {
-                                alertify.error("Error del servidor");
+                                alert("Error del servidor");
                             }
                         }
                     });
@@ -2360,7 +2094,7 @@
                 id_orden = $('#id-orden').val();
                 if (!nombre_orden)
                 {
-                    alertify.warning('El campo no puede quedar vacío');
+                    alert('El campo no puede quedar vacío');
                 } else
                 {
                     $.ajax({
@@ -2370,9 +2104,9 @@
                         success: function (r) {
 
                             if (r == 1) {
-                                alertify.success("Se actualizó correctamente");
+                                alert("Se actualizó correctamente");
                             } else {
-                                alertify.error("Error del servidor");
+                                alert("Error del servidor");
                             }
                         }
                     });
@@ -2386,7 +2120,7 @@
                 id_familia = $('#id-familia').val();
                 if (!nombre_familia)
                 {
-                    alertify.warning('El campo no puede quedar vacío');
+                    alert('El campo no puede quedar vacío');
                 } else
                 {
                     $.ajax({
@@ -2396,9 +2130,9 @@
                         success: function (r) {
 
                             if (r == 1) {
-                                alertify.success("Se actualizó correctamente");
+                                alert("Se actualizó correctamente");
                             } else {
-                                alertify.error("Error del servidor");
+                                alert("Error del servidor");
                             }
                         }
                     });
@@ -2412,7 +2146,7 @@
                 id_genero = $('#id-genero').val();
                 if (!nombre_genero)
                 {
-                    alertify.warning('El campo no puede quedar vacío');
+                    alert('El campo no puede quedar vacío');
                 } else
                 {
                     $.ajax({
@@ -2422,9 +2156,9 @@
                         success: function (r) {
 
                             if (r == 1) {
-                                alertify.success("Se actualizó correctamente");
+                                alert("Se actualizó correctamente");
                             } else {
-                                alertify.error("Error del servidor");
+                                alert("Error del servidor");
                             }
                         }
                     });
@@ -2438,7 +2172,7 @@
                 id_epiteto = $('#id-epiteto').val();
                 if (!nombre_epiteto)
                 {
-                    alertify.warning('El campo no puede quedar vacío');
+                    alert('El campo no puede quedar vacío');
                 } else
                 {
                     $.ajax({
@@ -2448,9 +2182,9 @@
                         success: function (r) {
 
                             if (r == 1) {
-                                alertify.success("Se actualizó correctamente");
+                                alert("Se actualizó correctamente");
                             } else {
-                                alertify.error("Error del servidor");
+                                alert("Error del servidor");
                             }
                         }
                     });
@@ -2464,7 +2198,7 @@
                 id_color = $('#id-color').val();
                 if (!nombre_color)
                 {
-                    alertify.warning('El campo no puede quedar vacío');
+                    alert('El campo no puede quedar vacío');
                 } else
                 {
                     $.ajax({
@@ -2474,9 +2208,9 @@
                         success: function (r) {
 
                             if (r == 1) {
-                                alertify.success("Se actualizó correctamente");
+                                alert("Se actualizó correctamente");
                             } else {
-                                alertify.error("Error del servidor");
+                                alert("Error del servidor");
                             }
                         }
                     });
@@ -2490,7 +2224,7 @@
                 id_determinado = $('#id-determinado').val();
                 if (!nombre_determinado)
                 {
-                    alertify.warning('El campo no puede quedar vacío');
+                    alert('El campo no puede quedar vacío');
                 } else
                 {
                     $.ajax({
@@ -2500,9 +2234,9 @@
                         success: function (r) {
 
                             if (r == 1) {
-                                alertify.success("Se actualizó correctamente");
+                                alert("Se actualizó correctamente");
                             } else {
-                                alertify.error("Error del servidor");
+                                alert("Error del servidor");
                             }
                         }
                     });
@@ -2516,7 +2250,7 @@
                 id_forma = $('#id-forma').val();
                 if (!nombre_forma)
                 {
-                    alertify.warning('El campo no puede quedar vacío');
+                    alert('El campo no puede quedar vacío');
                 } else
                 {
                     $.ajax({
@@ -2526,9 +2260,9 @@
                         success: function (r) {
 
                             if (r == 1) {
-                                alertify.success("Se actualizó correctamente");
+                                alert("Se actualizó correctamente");
                             } else {
-                                alertify.error("Error del servidor");
+                                alert("Error del servidor");
                             }
                         }
                     });
@@ -2538,11 +2272,11 @@
             //***** ACTUALIZAR TIPO DE HOJA
             $('#actualizar-tipo').click(function ()
             {
-                nombre_tipo = $('#nombre-tipohoja-e').val();
+                nombre_tipo = $('#nombre-tipo-e').val();
                 id_tipo = $('#id-tipo').val();
                 if (!nombre_tipo)
                 {
-                    alertify.warning('El campo no puede quedar vacío');
+                    alert('El campo no puede quedar vacío');
                 } else
                 {
                     $.ajax({
@@ -2552,9 +2286,9 @@
                         success: function (r) {
 
                             if (r == 1) {
-                                alertify.success("Se actualizó correctamente");
+                                alert("Se actualizó correctamente");
                             } else {
-                                alertify.error("Error del servidor");
+                                alert("Error del servidor");
                             }
                         }
                     });
@@ -2568,7 +2302,7 @@
                 id_uso = $('#id-uso').val();
                 if (!nombre_uso)
                 {
-                    alertify.warning('El campo no puede quedar vacío');
+                    alert('El campo no puede quedar vacío');
                 } else
                 {
                     $.ajax({
@@ -2578,9 +2312,9 @@
                         success: function (r) {
 
                             if (r == 1) {
-                                alertify.success("Se actualizó correctamente");
+                                alert("Se actualizó correctamente");
                             } else {
-                                alertify.error("Error del servidor");
+                                alert("Error del servidor");
                             }
                         }
                     });
@@ -2590,11 +2324,11 @@
             //***** ACTUALIZAR ESTADO DE SALUD
             $('#actualizar-estado').click(function ()
             {
-                nombre_estado = $('#nombre-estadosalud-e').val();
+                nombre_estado = $('#nombre-estado-e').val();
                 id_estado = $('#id-estado').val();
                 if (!nombre_estado)
                 {
-                    alertify.warning('El campo no puede quedar vacío');
+                    alert('El campo no puede quedar vacío');
                 } else
                 {
                     $.ajax({
@@ -2604,9 +2338,9 @@
                         success: function (r) {
 
                             if (r == 1) {
-                                alertify.success("Se actualizó correctamente");
+                                alert("Se actualizó correctamente");
                             } else {
-                                alertify.error("Error del servidor");
+                                alert("Error del servidor");
                             }
                         }
                     });
@@ -2676,7 +2410,7 @@
             function agregarFormTipoHoja(datos_tipo) {
                 ti = datos_tipo.split('-');
                 $('#id-tipo').val(ti[0]);
-                $('#nombre-tipohoja-e').val(ti[1]);
+                $('#nombre-tipo-e').val(ti[1]);
             }
 
             function agregarFormUso(datos_uso) {
@@ -2688,307 +2422,40 @@
             function agregarFormEstadoSalud(datos_estado) {
                 es = datos_estado.split('-');
                 $('#id-estado').val(es[0]);
-                $('#nombre-estadosalud-e').val(es[1]);
+                $('#nombre-estado-e').val(es[1]);
             }
 
         </script>
 
         <!-- SCRIPT FILTRAR DATOS -->
         <script>
-            //***** FILTRAR REINO
-            function filtrarReino(id) {
+            //***** ACTUALIZAR REINO
+
+            function filtrarReino(datos_reino) {
 
                 $.ajax({
                     type: "POST",
                     url: "app/filtrarDatos.php",
-                    data: {'funcion': 'filtrarReino', 'id': id},
+                    data: {'funcion': 'filtrarReino', 'id_reino': datos_reino},
 
                     success: function (r) {
                         var datos = $.parseJSON(r);
                         console.log(datos);
-                        var t = $('#tablaReino').DataTable();
+                        var t = $('#tablaReinos').DataTable();
                         t.clear().draw();
-                        $.each(datos, function (i, item)
+                        $.each(datos,function(i,item)
                         {
                             t.row.add([
+                                item.fecha_ingreso,
+                                item.nombre_usuario,
                                 item.idPlanta,
-                                item.nombre_familia,
-                                item.nombre_genero,
-                                item.nombre_epiteto,
-                                item.fecha_ingreso
+                                item.accion,
+                                item.revision
 
                             ]).draw(false);
                         });
-                    }
-                });
-            }
-            //***** FILTRAR DIVISION
-            function filtrarDivision(id) {
+                          
 
-                $.ajax({
-                    type: "POST",
-                    url: "app/filtrarDatos.php",
-                    data: {'funcion': 'filtrarDivision', 'id': id},
-
-                    success: function (r) {
-                        var datos = $.parseJSON(r);
-                        console.log(datos);
-                        var t = $('#tablaDivision').DataTable();
-                        t.clear().draw();
-                        $.each(datos, function (i, item)
-                        {
-                            t.row.add([
-                                item.idPlanta,
-                                item.nombre_familia,
-                                item.nombre_genero,
-                                item.nombre_epiteto,
-                                item.fecha_ingreso
-
-                            ]).draw(false);
-                        });
-                    }
-                });
-            }
-            //***** FILTRAR CLASE
-            function filtrarClase(id) {
-
-                $.ajax({
-                    type: "POST",
-                    url: "app/filtrarDatos.php",
-                    data: {'funcion': 'filtrarClase', 'id': id},
-
-                    success: function (r) {
-                        var datos = $.parseJSON(r);
-                        console.log(datos);
-                        var t = $('#tablaClase').DataTable();
-                        t.clear().draw();
-                        $.each(datos, function (i, item)
-                        {
-                            t.row.add([
-                                item.idPlanta,
-                                item.nombre_familia,
-                                item.nombre_genero,
-                                item.nombre_epiteto,
-                                item.fecha_ingreso
-
-                            ]).draw(false);
-                        });
-                    }
-                });
-            }
-            //***** FILTRAR ORDEN
-            function filtrarOrden(id) {
-
-                $.ajax({
-                    type: "POST",
-                    url: "app/filtrarDatos.php",
-                    data: {'funcion': 'filtrarOrden', 'id': id},
-
-                    success: function (r) {
-                        var datos = $.parseJSON(r);
-                        console.log(datos);
-                        var t = $('#tablaOrden').DataTable();
-                        t.clear().draw();
-                        $.each(datos, function (i, item)
-                        {
-                            t.row.add([
-                                item.idPlanta,
-                                item.nombre_familia,
-                                item.nombre_genero,
-                                item.nombre_epiteto,
-                                item.fecha_ingreso
-
-                            ]).draw(false);
-                        });
-                    }
-                });
-            }
-            //***** FILTRAR FAMILIA
-            function filtrarFamilia(id) {
-
-                $.ajax({
-                    type: "POST",
-                    url: "app/filtrarDatos.php",
-                    data: {'funcion': 'filtrarFamilia', 'id': id},
-
-                    success: function (r) {
-                        var datos = $.parseJSON(r);
-                        console.log(datos);
-                        var t = $('#tablaFamilia').DataTable();
-                        t.clear().draw();
-                        $.each(datos, function (i, item)
-                        {
-                            t.row.add([
-                                item.idPlanta,
-                                item.nombre_familia,
-                                item.nombre_genero,
-                                item.nombre_epiteto,
-                                item.fecha_ingreso
-
-                            ]).draw(false);
-                        });
-                    }
-                });
-            }
-            //***** FILTRAR GENERO
-            function filtrarGenero(id) {
-
-                $.ajax({
-                    type: "POST",
-                    url: "app/filtrarDatos.php",
-                    data: {'funcion': 'filtrarGenero', 'id': id},
-
-                    success: function (r) {
-                        var datos = $.parseJSON(r);
-                        console.log(datos);
-                        var t = $('#tablaGenero').DataTable();
-                        t.clear().draw();
-                        $.each(datos, function (i, item)
-                        {
-                            t.row.add([
-                                item.idPlanta,
-                                item.nombre_familia,
-                                item.nombre_genero,
-                                item.nombre_epiteto,
-                                item.fecha_ingreso
-
-                            ]).draw(false);
-                        });
-                    }
-                });
-            }
-            //***** FILTRAR EPITETO
-            function filtrarEpiteto(id) {
-
-                $.ajax({
-                    type: "POST",
-                    url: "app/filtrarDatos.php",
-                    data: {'funcion': 'filtrarEpiteto', 'id': id},
-
-                    success: function (r) {
-                        var datos = $.parseJSON(r);
-                        console.log(datos);
-                        var t = $('#tablaEpiteto').DataTable();
-                        t.clear().draw();
-                        $.each(datos, function (i, item)
-                        {
-                            t.row.add([
-                                item.idPlanta,
-                                item.nombre_familia,
-                                item.nombre_genero,
-                                item.nombre_epiteto,
-                                item.fecha_ingreso
-
-                            ]).draw(false);
-                        });
-                    }
-                });
-            }
-            //***** FILTRAR COLOR
-            function filtrarColor(id) {
-
-                $.ajax({
-                    type: "POST",
-                    url: "app/filtrarDatos.php",
-                    data: {'funcion': 'filtrarColor', 'id': id},
-
-                    success: function (r) {
-                        var datos = $.parseJSON(r);
-                        console.log(datos);
-                        var t = $('#tablaColor').DataTable();
-                        t.clear().draw();
-                        $.each(datos, function (i, item)
-                        {
-                            t.row.add([
-                                item.idPlanta,
-                                item.nombre_familia,
-                                item.nombre_genero,
-                                item.nombre_epiteto,
-                                item.fecha_ingreso
-
-                            ]).draw(false);
-                        });
-                    }
-                });
-            }
-            //***** FILTRAR DETERMINACION
-            function filtrarDeterminadaPor(id) {
-
-                $.ajax({
-                    type: "POST",
-                    url: "app/filtrarDatos.php",
-                    data: {'funcion': 'filtrarDeterminadaPor', 'id': id},
-
-                    success: function (r) {
-                        var datos = $.parseJSON(r);
-                        console.log(datos);
-                        var t = $('#tablaDeterminadaPor').DataTable();
-                        t.clear().draw();
-                        $.each(datos, function (i, item)
-                        {
-                            t.row.add([
-                                item.idPlanta,
-                                item.nombre_familia,
-                                item.nombre_genero,
-                                item.nombre_epiteto,
-                                item.fecha_ingreso
-
-                            ]).draw(false);
-                        });
-                    }
-                });
-            }
-            //***** FILTRAR FORMA
-            function filtrarForma(id) {
-
-                $.ajax({
-                    type: "POST",
-                    url: "app/filtrarDatos.php",
-                    data: {'funcion': 'filtrarForma', 'id': id},
-
-                    success: function (r) {
-                        var datos = $.parseJSON(r);
-                        console.log(datos);
-                        var t = $('#tablaForma').DataTable();
-                        t.clear().draw();
-                        $.each(datos, function (i, item)
-                        {
-                            t.row.add([
-                                item.idPlanta,
-                                item.nombre_familia,
-                                item.nombre_genero,
-                                item.nombre_epiteto,
-                                item.fecha_ingreso
-
-                            ]).draw(false);
-                        });
-                    }
-                });
-            }
-            //***** FILTRAR TIPO DE HOJA
-            function filtrarTipoHoja(id) {
-
-                $.ajax({
-                    type: "POST",
-                    url: "app/filtrarDatos.php",
-                    data: {'funcion': 'filtrarTipoHoja', 'id': id},
-
-                    success: function (r) {
-                        var datos = $.parseJSON(r);
-                        console.log(datos);
-                        var t = $('#tablaTipoHoja').DataTable();
-                        t.clear().draw();
-                        $.each(datos, function (i, item)
-                        {
-                            t.row.add([
-                                item.idPlanta,
-                                item.nombre_familia,
-                                item.nombre_genero,
-                                item.nombre_epiteto,
-                                item.fecha_ingreso
-
-                            ]).draw(false);
-                        });
                     }
                 });
             }

@@ -185,21 +185,3 @@ elseif ($funcion == 'actualizarEstado') {
         echo '0';
     }
 }
-
-// ********PONER OCULTO
-elseif ($funcion == 'ponerOcultos') {
-    $oculto = $_POST["oculto"];
-    try {
-
-        $query = "UPDATE `planta` SET `visible`= 1 WHERE idPlanta = ?";
-        $stmt = $pdoConn->prepare($query);
-
-        for ($i = 0; $i < sizeof($oculto); $i++) {
-            $stmt->execute(array($oculto[$i]));
-        }
-        
-        echo '1';
-    } catch (Exception $e) {
-        echo '0';
-    }
-}
