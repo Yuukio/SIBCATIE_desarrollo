@@ -353,7 +353,7 @@ include_once 'plantillas/head-dashboard.php';
                                         </thead>
                                         <tbody>
                                             <?php
-                                            $sql_usuarios = "SELECT nombre, apellido, email, telefono FROM usuario ORDER BY apellido ASC";
+                                            $sql_usuarios = "SELECT nombre, apellido, email, telefono FROM usuario WHERE seccion_idseccion=1 AND activo=1 AND (rol_idrol=0 OR rol_idrol=1) ORDER BY apellido ASC";
 
                                             $consulta_usuarios = Conexion::obtener_conexion()->query($sql_usuarios);
 =======
