@@ -2,7 +2,7 @@
 
 class ControlSesion {
 
-    public static function iniciarSesion($id_usuario, $nombre_usuario, $rol, $seccion) {
+    public static function iniciarSesion($id_usuario, $nombre_usuario) {
 
         if (session_id() == '') {
             session_start();
@@ -10,8 +10,6 @@ class ControlSesion {
 
         $_SESSION['idUsuario'] = $id_usuario;
         $_SESSION['nombre_usuario'] = $nombre_usuario;
-        $_SESSION['rol_idRol'] = $rol;
-        $_SESSION['seccion_idSeccion'] = $seccion;
     }
 
     public static function cerrarSesion() {
@@ -44,42 +42,4 @@ class ControlSesion {
         }
     }
 
-    public static function rolAdminNativa() {
-
-        if (isset($_SESSION['rol_idRol']) && $_SESSION['seccion_idSeccion']) {
-
-            if ($_SESSION['rol_idRol'] == 0 && $_SESSION['seccion_idSeccion'] == 1) {
-                return TRUE;
-            } else {
-                return FALSE;
-            }
-        }
-        return FALSE;
-    }
-
-    public static function rolColaboradorNativa() {
-
-        if (isset($_SESSION['rol_idRol']) && $_SESSION['seccion_idSeccion']) {
-
-            if ($_SESSION['rol_idRol'] == 1 && $_SESSION['seccion_idSeccion'] == 1) {
-                return TRUE;
-            } else {
-                return FALSE;
-            }
-        }
-        return FALSE;
-    }
-
-    public static function rolVisitante() {
-
-        if (isset($_SESSION['rol_idRol'])) {
-
-            if ($_SESSION['rol_idRol'] == 2) {
-                return TRUE;
-            } else {
-                return FALSE;
-            }
-        }
-        return FALSE;
-    }
 }

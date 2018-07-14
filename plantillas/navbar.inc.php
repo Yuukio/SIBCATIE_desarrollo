@@ -3,6 +3,7 @@ include_once 'app/ControlSesion.inc.php';
 include_once 'app/config.inc.php';
 
 Conexion::abrir_conexion();
+$total_usuarios = RepositorioUsuario::obtenerNumeroUsuarios(Conexion::obtener_conexion());
 ?>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar" data-offset="60">
@@ -21,7 +22,7 @@ Conexion::abrir_conexion();
                 <ul class="navbar-nav text-uppercase ml-auto">
 
                     <?php
-                    if (ControlSesion::sesionIniciada() AND (ControlSesion::rolAdminNativa() OR ControlSesion::rolColaboradorNativa())) {
+                    if (true) {
                         ?>
                         <li class="nav-item">
                             <a class="nav-link js-scroll-trigger" href="<?php echo RUTA_DASHBOARD ?>">Administracion</a>
@@ -48,19 +49,18 @@ Conexion::abrir_conexion();
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="#contact">Contacto</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger">
+                            <?php
+                            echo $total_usuarios;
+                            ?>
+                        </a> 
+                    </li>
                     <li style="padding-right: 60px"></li>
 
                     <?php
                     if (ControlSesion::sesionIniciada()) {
                         ?>
-
-                        <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="#"><?php echo '' . $_SESSION['rol_idRol']; ?></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="#"><?php echo '' . $_SESSION['seccion_idSeccion']; ?></a>
-                        </li>
-
                         <li class="nav-item dropdown">
                             <a class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">
                                 <?php echo '' . $_SESSION['nombre_usuario']; ?>

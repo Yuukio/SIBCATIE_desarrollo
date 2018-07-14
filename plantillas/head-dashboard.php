@@ -1,6 +1,4 @@
 <?php
-include_once 'app/ControlSesion.inc.php';
-include_once 'app/config.inc.php';
 include_once 'app/Conexion.inc.php';
 Conexion::abrir_conexion();
 ?>

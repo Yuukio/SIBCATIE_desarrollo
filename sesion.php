@@ -7,6 +7,7 @@ include_once 'app/validadorRegistroPublico.inc.php';
 include_once 'app/validadorSesionPublico.inc.php';
 include_once 'app/Redireccion.inc.php';
 include_once 'app/ControlSesion.inc.php';
+include_once 'app/Redireccion.inc.php';
 
 //VALIDAR INICIO DE SESION
 if(ControlSesion::sesionIniciada()){
@@ -22,8 +23,7 @@ if (isset($_POST['login'])) {
 
     if ($validador_s->obtenerError() === '' && !is_null($validador_s->obtenerUsuario())) {
         //iniciar sesion
-        ControlSesion::iniciarSesion($validador_s->obtenerUsuario()->getIdusuario(), $validador_s->obtenerUsuario()->getNombre_usuario(), 
-                $validador_s->obtenerUsuario()->getRol(), $validador_s->obtenerUsuario()->getSeccion());
+        ControlSesion::iniciarSesion($validador_s->obtenerUsuario()->getIdusuario(), $validador_s->obtenerUsuario()->getNombre_usuario());
         Redireccion::redirigir(SERVIDOR);
         //redirigir a index
         //echo 'Bien';

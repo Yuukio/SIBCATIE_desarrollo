@@ -28,19 +28,7 @@
         <div class="user-info">
             <div class="info-container">
                 <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <h4>
-                        <?php
-                        if ($_SESSION['rol_idRol'] == 0) {
-                            ?>
-                            Administrador
-                            <?php
-                        } else {
-                            ?>
-                            Colaborador
-                            <?php
-                        }
-                        ?>
-                    </h4>
+                    <h4>Administrador</h4>
                 </div>
 
             </div>
@@ -91,9 +79,9 @@
                         <span>Home</span>
                     </a>
                 </li>
-
+                
                 <li class="header">ADMINISTRACIÓN</li>
-
+                
                 <li class= "<?php echo $registros ?>" >
                     <a href="registros.php">
                         <i class="material-icons">view_list</i>
